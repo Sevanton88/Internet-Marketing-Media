@@ -1,0 +1,2093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<!-- Scroll-to-top on reload — runs synchronously before the browser restores scroll
+     position. Without this, refresh-while-scrolled-down lands the user mid-page,
+     which interacts badly with the cards-stack pin triggers. -->
+<script>
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  // Belt-and-braces: in case the browser already started restoring before this ran.
+  window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
+</script>
+<title>Internet Marketing Media | Full-Service SEO Agency</title>
+<meta name="description" content="Full-service SEO agency ranking businesses in the US, UK, Europe, and Australia. Technical SEO, content, link building, and local SEO starting at $799/mo. Free audit in 48 hours.">
+<meta name="keywords" content="digital marketing agency, SEO optimization, web design, Google Ads">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://internetmarketingmedia.net/">
+<meta name="google-site-verification" content="2dqYZQWVb01YIEkOEMmN0Liy988r7SacRc2iiojqWoA">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Your Digital Business Partner - Internet Marketing Media">
+<meta property="og:url" content="https://internetmarketingmedia.net/">
+<meta property="og:image" content="https://internetmarketingmedia.net/assets/imgs/sc.jpg">
+<meta property="og:description" content="Internet Marketing Media - web design and SEO optimization for maximum growth.">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&family=Six+Caps&display=swap" rel="stylesheet">
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<!-- Swiper -->
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F1ZML705G2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F1ZML705G2');gtag('config','AW-972801614');</script>
+
+<style>
+/* ===== VARIABLES ===== */
+:root {
+  --bg: #0e0f11;
+  --bg2: #18191b;
+  --lime: #d0ff71;
+  --white: #fff;
+  --gray: #a4a4a4;
+  --border: rgba(255,255,255,0.1);
+  --ff-body: 'Inter', sans-serif;
+  --ff-display: 'Six Caps', sans-serif;
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--white);
+  background-color: var(--bg);
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; transition: color .3s; }
+img { max-width: 100%; display: block; }
+h1,h2,h3,h4,h5,h6 { font-weight: 400; margin: 0; line-height: 1.1; }
+h1 { font-size: clamp(42px,6vw,70px); letter-spacing: -3px; }
+h2 { font-size: clamp(30px,4vw,50px); letter-spacing: -2px; }
+h3 { font-size: clamp(26px,3vw,40px); letter-spacing: -1px; }
+h4 { font-size: 28px; }
+h5 { font-size: 22px; letter-spacing: -.5px; }
+h6 { font-size: 18px; }
+p { font-size: 15px; color: var(--gray); line-height: 1.7; }
+.section-padding { padding: 100px 0; }
+.sub-bg { background: var(--bg2); }
+.light-bg { background: #fff; color: #0e0f11; }
+.light-bg p { color: #555; }
+.sub-color { color: var(--gray); }
+.title-font { font-family: var(--ff-display); letter-spacing: normal; }
+.main-color { color: var(--lime); }
+.radius-30 { border-radius: 30px; }
+.bord-thin-bottom-light { border-bottom: 1px solid var(--border); }
+.bord-thin-top-light { border-top: 1px solid var(--border); }
+
+/* ===== LOADER ===== */
+.loader-wrap {
+  position: fixed; inset: 0; z-index: 99999;
+  background: var(--bg); display: flex; align-items: center; justify-content: center;
+  transition: opacity .6s .2s, visibility .6s .2s;
+}
+.loader-wrap.hidden { opacity: 0; visibility: hidden; }
+.loader-inner { display: flex; gap: 8px; }
+.loader-dot {
+  width: 10px; height: 10px; border-radius: 50%; background: var(--lime);
+  animation: ldot .8s infinite alternate;
+}
+.loader-dot:nth-child(2) { animation-delay: .2s; }
+.loader-dot:nth-child(3) { animation-delay: .4s; }
+@keyframes ldot { from { transform: translateY(0); opacity: .4; } to { transform: translateY(-15px); opacity: 1; } }
+
+/* ===== PROGRESS ===== */
+.progress-wrap {
+  position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+  width: 46px; height: 46px; cursor: pointer;
+  opacity: 0; visibility: hidden; transition: all .4s;
+}
+.progress-wrap.active-progress { opacity: 1; visibility: visible; }
+.progress-wrap svg { transform: rotate(-90deg); }
+.progress-wrap svg path {
+  fill: none; stroke: var(--lime); stroke-width: 4;
+  stroke-dasharray: 307; stroke-dashoffset: 307;
+  transition: stroke-dashoffset .3s;
+}
+.progress-wrap::after {
+  content: '\f077'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--white);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed; top: 20px; left: 0; width: 100%;
+  padding: 0 15px; z-index: 9999; transition: top .3s;
+}
+.navbar-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1400px; margin: 0 auto;
+  background: rgba(14,15,17,.7); backdrop-filter: blur(20px);
+  border: 1px solid var(--border); border-radius: 50px; padding: 8px 12px;
+}
+.nav-logo { width: 130px; padding: 4px 12px; border: 1px solid var(--border); border-radius: 30px; }
+.nav-logo img { width: 100%; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a {
+  padding: 6px 16px; border-radius: 30px; font-size: 13px; color: rgba(255,255,255,.7);
+  transition: all .2s; white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,.1); color: #fff; }
+.nav-cta {
+  padding: 8px 20px; background: #fff; color: #1d1d1d !important;
+  border-radius: 30px; font-size: 13px; font-weight: 500; white-space: nowrap;
+  display: flex; align-items: center; gap: 6px; transition: background .3s;
+}
+.nav-cta:hover { background: var(--lime) !important; }
+.d-lg-flex { display: flex !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all .3s; }
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed; inset: 0; background: var(--bg); z-index: 9998;
+  transform: translateX(100%); transition: transform .4s cubic-bezier(.77,0,.175,1);
+  display: flex; flex-direction: column; padding: 100px 40px 40px;
+}
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a {
+  font-size: clamp(28px,6vw,42px); font-weight: 300; letter-spacing: -1px;
+  padding: 12px 0; border-bottom: 1px solid var(--border); color: #fff;
+  display: block; transition: color .2s;
+}
+.mobile-menu a:hover { color: var(--lime); }
+.mobile-menu-info { margin-top: auto; }
+.mobile-menu-info p { font-size: 13px; color: var(--gray); margin-bottom: 4px; }
+
+/* ===== BUTTONS ===== */
+.butn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 24px; border-radius: 30px; font-size: 14px; font-weight: 500;
+  cursor: pointer; transition: all .3s; border: none; background: transparent; color: inherit;
+}
+.butn-rounded { border: 1px solid var(--border); }
+.butn-rounded:hover { background: #fff; color: #1d1d1d; }
+.butn-dark { background: var(--bg2); border: 1px solid var(--border); }
+.butn-dark:hover { background: var(--lime); color: #1d1d1d; border-color: var(--lime); }
+.butn .icon { width: 16px; flex-shrink: 0; }
+.butn .icon img { width: 100%; filter: invert(1); }
+.butn:hover .icon img { filter: none; }
+.light-bg .butn-rounded { border-color: rgba(0,0,0,.2); color: #1d1d1d; }
+.light-bg .butn-rounded:hover { background: var(--lime); color: #1d1d1d; border-color: transparent; }
+.light-bg .butn .icon img { filter: none; }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden; background: var(--bg);
+}
+.hero-images {
+  position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr;
+}
+.hero-img {
+  height: 100%; overflow: hidden;
+}
+.hero-img img { width: 100%; height: 100%; object-fit: cover; }
+.hero-grad {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, var(--bg) 40%, transparent 100%);
+  z-index: 2;
+}
+.hero-caption {
+  position: relative; z-index: 3;
+  text-align: center; padding: 0 20px 60px;
+}
+.hero-caption h1 {
+  font-family: var(--ff-display);
+  font-size: clamp(60px, 14vw, 180px);
+  font-weight: 500; text-transform: uppercase; letter-spacing: normal; line-height: .95;
+  transform: scaleX(1.4); opacity: 0;
+  transition: transform 1.2s cubic-bezier(.16,1,.3,1), opacity 1s ease;
+}
+.hero-caption h1.visible { transform: scaleX(1); opacity: 1; }
+.hero-caption h2 {
+  font-size: clamp(14px, 2vw, 22px); font-weight: 300; letter-spacing: -.5px;
+  color: rgba(255,255,255,.7); margin-top: 20px;
+  opacity: 0; transform: translateY(20px);
+  transition: all .8s ease 1s;
+}
+.hero-caption h2.visible { opacity: 1; transform: translateY(0); }
+.hero-img-right { display: block; }
+
+/* ===== NUMBERS ===== */
+.numbers-cst { border-top: 1px solid var(--border); }
+.num-col {
+  padding: 60px 20px; text-align: center;
+  border-right: 1px solid var(--border);
+}
+.num-col:last-child { border-right: none; }
+.num-item h2 {
+  font-family: var(--ff-display); font-size: clamp(55px, 8vw, 110px);
+  letter-spacing: normal; color: #fff; margin-bottom: 12px;
+}
+.num-item p { font-size: 12px; color: #888; line-height: 1.5; }
+.num-item p span { display: block; color: #555; font-size: 11px; margin-top: 4px; }
+
+/* ===== SEARCH ADVANTAGE ===== */
+.analytics-head { text-align: center; padding: 0 15px; margin-bottom: 60px; }
+.analytics-head h2 { font-size: clamp(28px,4vw,56px); font-weight: 400; letter-spacing: -2px; margin-bottom: 16px; }
+.analytics-head h2 strong { font-weight: 700; color: var(--lime); }
+.analytics-head p { max-width: 660px; margin: 0 auto; font-size: 13px; color: #555; }
+
+/* Stacked cards */
+.cards-wrap { position: relative; }
+.card-item {
+  margin-bottom: 24px; border-radius: 20px; overflow: hidden;
+  transition: transform .4s;
+}
+.card-item:hover { transform: translateY(-4px); }
+.card-item .img {
+  position: relative; height: 420px; border-radius: 20px; overflow: hidden;
+  background: var(--bg2);
+}
+.card-item .img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, var(--bg), transparent);
+  opacity: .5;
+}
+.card-item .img img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.card-item .img .tags {
+  position: absolute; top: 24px; right: 24px; z-index: 3; display: flex; gap: 6px; flex-wrap: wrap;
+}
+.card-item .img .tags a {
+  font-size: 11px; padding: 5px 12px;
+  border: 1px solid rgba(255,255,255,.15); border-radius: 30px;
+  backdrop-filter: blur(10px);
+}
+.card-item h5 {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-display); font-size: clamp(40px, 8vw, 120px); letter-spacing: normal;
+  color: rgba(255,255,255,.9);
+}
+
+/* ===== SEC HEAD ===== */
+.sec-head { margin-bottom: 60px; }
+.sec-head .fz-40 { font-size: clamp(24px,3vw,40px); }
+.sec-head .sub-head {
+  position: relative; padding-left: 22px; font-size: 16px; font-weight: 300; color: var(--gray);
+}
+.sec-head .sub-head::after {
+  content: ''; width: 7px; height: 7px; background: #fff;
+  border-radius: 50%; position: absolute; top: 8px; left: 0;
+}
+
+/* ===== ABOUT INTRO ===== */
+.intro-cst .text h5 { font-size: clamp(18px,2vw,26px); font-weight: 300; line-height: 1.5; color: rgba(255,255,255,.85); letter-spacing: -.3px; }
+.intro-cst .states .item {
+  position: relative; padding-left: 55px;
+}
+.intro-cst .states .item::before {
+  content: ''; position: absolute; top: 10px; left: 0; width: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.intro-cst .states .item::after {
+  content: ''; position: absolute; top: 10px; left: 0; bottom: 0;
+  border-left: 1px solid var(--border);
+}
+.intro-cst .states .item span { font-size: 14px; color: #888; }
+.intro-cst .states .item h2 {
+  font-family: var(--ff-display); font-size: clamp(60px,9vw,140px);
+  letter-spacing: normal; line-height: 1; margin-top: 30px;
+}
+.intro-cst .states .item .spn-botm { margin-left: 10px; font-size: 16px; color: var(--gray); }
+
+/* ===== SERVICES ===== */
+.services-cst .item {
+  padding: 30px 0; border-bottom: 1px solid rgba(0,0,0,.2);
+  display: flex; align-items: center; justify-content: space-between;
+  overflow: hidden; transition: all .3s; cursor: default;
+  position: relative;
+}
+.services-cst .item .numb h3 { font-size: 18px; color: var(--gray); min-width: 50px; }
+.services-cst .item .title { text-align: center; flex: 1; position: relative; }
+.services-cst .item .title h2 {
+  font-size: clamp(32px, 6vw, 90px); font-weight: 500; letter-spacing: -4px;
+  white-space: nowrap; transition: color .3s;
+}
+.services-cst .item:hover .title h2 { color: var(--lime); }
+.services-cst .item .title .list { opacity: 0; transition: opacity .3s; pointer-events: none; }
+.services-cst .item:hover .title .list { opacity: 1; }
+.services-cst .item .title .list span {
+  position: absolute; padding: 6px 14px;
+  background: var(--lime); border-radius: 30px; font-size: 13px; color: var(--bg);
+  opacity: 0; transition: opacity .4s;
+  white-space: nowrap;
+}
+.services-cst .item:hover .title .list span { opacity: 1; }
+.services-cst .item .title .list span:nth-child(1) { top: -14px; left: 15%; }
+.services-cst .item .title .list span:nth-child(2) { top: 50%; left: -10px; transform: translateY(-50%); transition-delay: .1s; }
+.services-cst .item .title .list span:nth-child(3) { bottom: -14px; right: 15%; transition-delay: .2s; }
+.services-cst .item .title .list span:nth-child(4) { top: 50%; right: -10px; transform: translateY(-50%); transition-delay: .3s; }
+.services-cst .item .icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.2); display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.services-cst .item .icon img { width: 26px; }
+.light-bg .services-cst .item { border-color: rgba(0,0,0,.1); }
+
+/* ===== TEAM ===== */
+.team-cst .thecontainer {
+  display: flex; width: 200vw; padding-top: 60px;
+}
+.team-cst .panel {
+  flex: 1; display: flex; justify-content: flex-end; align-items: center; padding: 0 20px;
+}
+.team-cst .panel:nth-child(even) .item { transform: translateY(-20px); }
+.team-cst .panel .item { width: 24vw; max-width: 320px; transform: translateY(20px); }
+.team-cst .panel .item .img img { filter: grayscale(1); transition: filter .4s; border-radius: 16px; }
+.team-cst .panel .item:hover .img img { filter: grayscale(0); }
+.team-cst .panel .item .cont { margin-top: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+.team-cst .panel .item .cont h3 { font-size: 22px; font-weight: 500; }
+.team-cst .panel .item .cont span { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); }
+
+/* ===== CLIENTS ===== */
+.clients-ds .item {
+  border: 1px solid var(--border); border-radius: 80px;
+  padding: 20px 40px; display: flex; align-items: center; justify-content: center;
+  height: 80px;
+}
+.clients-ds .item .img { max-width: 110px; max-height: 40px; margin: auto; }
+.clients-ds .item img { max-height: 36px; width: auto; margin: auto; filter: brightness(0) invert(1); opacity: .5; transition: opacity .3s; }
+.clients-ds .item:hover img { opacity: 1; }
+
+/* ===== FOOTER ===== */
+.footer-sa .call-action h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(60px, 18vw, 260px);
+  font-weight: 600; text-transform: uppercase; letter-spacing: normal;
+  line-height: 1; cursor: pointer; transition: color .3s;
+}
+.footer-sa .call-action h2 a:hover { color: var(--lime); }
+.footer-sa .logo { width: 120px; }
+.footer-sa .contact-info .item { margin-bottom: 40px; }
+.footer-sa .contact-info .item span { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); display: block; margin-bottom: 8px; }
+.footer-sa .contact-info .item p, .footer-sa .contact-info .item a { font-size: 14px; color: rgba(255,255,255,.8); line-height: 1.8; }
+.footer-sa .contact-info .item a:hover { color: var(--lime); }
+.social-icon { display: flex; gap: 10px; flex-wrap: wrap; }
+.social-icon a {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: rgba(255,255,255,.7); transition: all .3s;
+}
+.social-icon a:hover { border-color: #fff; color: #fff; }
+.footer-sa .sub-footer { padding-top: 40px; margin-top: 40px; border-top: 1px solid var(--border); }
+.footer-sa .sub-footer .copy p { font-size: 13px; color: var(--gray); }
+.footer-sa .sub-footer .copy p a { color: #fff; }
+.footer-sa .sub-footer .links { display: flex; gap: 24px; }
+.footer-sa .sub-footer .links a { font-size: 13px; color: var(--gray); }
+.footer-sa .sub-footer .links a:hover { color: #fff; }
+
+/* ===== MARQUEE ===== */
+.marquee-wrap { overflow: hidden; border-top: 1px solid var(--border); padding: 20px 0; }
+.marquee-track { display: flex; width: max-content; animation: marqueeScroll 20s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
+.marquee-item { padding: 0 60px; white-space: nowrap; }
+.marquee-item h4 { font-size: 9vw; font-weight: 700; text-transform: uppercase; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.25); }
+@keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ===== UTILS ===== */
+.ml-auto { margin-left: auto; }
+.mt-80 { margin-top: 80px; }
+.mb-80 { margin-bottom: 80px; }
+.mb-30 { margin-bottom: 30px; }
+.mt-30 { margin-top: 30px; }
+.mt-40 { margin-top: 40px; }
+.pb-30 { padding-bottom: 30px; }
+.pb-80 { padding-bottom: 80px; }
+.pt-50 { padding-top: 50px; }
+.pt-0 { padding-top: 0 !important; }
+.fz-40 { font-size: clamp(22px,3vw,40px) !important; }
+.ls2 { letter-spacing: -2px; }
+.text-u { text-transform: uppercase; }
+.d-flex { display: flex; }
+.align-items-center { align-items: center; }
+.align-items-end { align-items: flex-end; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-end { justify-content: flex-end; }
+.justify-content-center { justify-content: center; }
+.valign { display: flex; align-items: center; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .team-cst .thecontainer { width: 100%; flex-direction: column; }
+  .team-cst .panel { width: 100%; justify-content: center; }
+  .team-cst .panel .item { width: 100%; max-width: 100%; transform: none !important; }
+  .hero-img-right { display: none; }
+  .intro-cst .states .item h2 { font-size: clamp(50px, 12vw, 100px); }
+  .services-cst .item .title h2 { font-size: clamp(24px, 5vw, 55px); }
+  .sec-head .d-flex { flex-wrap: wrap; gap: 16px; }
+  .sec-head .ml-auto { margin-left: 0; }
+  .num-col { border-right: none; border-top: 1px solid var(--border); }
+  .num-col:first-child { border-top: none; }
+}
+@media (max-width: 768px) {
+  .section-padding { padding: 60px 0; }
+  h1 { font-size: 36px; letter-spacing: -1px; }
+  h2 { font-size: 28px; letter-spacing: -1px; }
+  h3 { font-size: 24px; }
+  .hero-caption h1 { font-size: clamp(48px, 14vw, 80px) !important; }
+  .hero-caption h2 { font-size: 15px; }
+  .footer-sa .call-action h2 { font-size: clamp(40px, 12vw, 80px); }
+  .services-cst .item .title .list { display: none; }
+  .clients-ds .item { padding: 15px 20px; }
+}
+
+/* ===== WOW FADE ===== */
+.wow { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+.wow.animated { opacity: 1; transform: translateY(0); }
+
+/* ── Services dropdown ── */
+.nav-dropdown { position:relative; }
+.nav-dropdown > a { display:flex; align-items:center; gap:5px; }
+.nav-dropdown > a::after { content:""; width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:4px solid rgba(255,255,255,.5); transition:transform .2s; }
+.nav-dropdown:hover > a::after { transform:rotate(180deg); border-top-color:#fff; }
+.dropdown-menu-custom {
+  position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%);
+  background:#13141a; border:1px solid rgba(255,255,255,.1); border-radius:16px;
+  padding:10px; min-width:240px; opacity:0; visibility:hidden;
+  transition:opacity .2s, transform .2s, visibility .2s;
+  transform:translateX(-50%) translateY(-8px);
+  box-shadow:0 20px 60px rgba(0,0,0,.5); z-index:1000;
+}
+.nav-dropdown:hover .dropdown-menu-custom {
+  opacity:1; visibility:visible;
+  transform:translateX(-50%) translateY(0);
+}
+.dropdown-menu-custom a {
+  display:flex; align-items:center; gap:12px; padding:10px 14px;
+  border-radius:10px; font-size:13px; color:rgba(255,255,255,.7);
+  transition:background .2s, color .2s; white-space:nowrap;
+  background:transparent !important;
+}
+.dropdown-menu-custom a:hover { background:rgba(255,255,255,.07) !important; color:#fff; }
+.dropdown-menu-custom a i { color:var(--lime); font-size:13px; width:16px; text-align:center; }
+.dropdown-menu-custom .dd-divider { height:1px; background:rgba(255,255,255,.07); margin:6px 4px; }
+
+.has-submenu{position:relative}
+.has-submenu>a{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;font-size:13px;color:rgba(255,255,255,.7);white-space:nowrap;text-decoration:none;background:transparent;width:100%;box-sizing:border-box}
+.has-submenu:hover>a{background:rgba(255,255,255,.07)!important;color:#fff}
+.has-submenu>.submenu{display:none;position:absolute;left:calc(100% + 6px);top:-10px;background:#13141a;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:10px;min-width:190px;box-shadow:0 20px 60px rgba(0,0,0,.5);z-index:1002}
+.has-submenu:hover>.submenu{display:block}
+.submenu a{display:flex;align-items:center;gap:10px;padding:7px 12px;border-radius:10px;font-size:12px;color:rgba(255,255,255,.65);white-space:nowrap;text-decoration:none;background:transparent!important;transition:background .2s,color .2s}
+.submenu a:hover{background:rgba(255,255,255,.07)!important;color:#fff}
+.submenu .sub-divider{height:1px;background:rgba(255,255,255,.07);margin:5px 4px}
+</style>
+<link rel="stylesheet" href="assets/css/new-index-sections.css">
+<script src="https://www.paypal.com/sdk/js?client-id=BAASw3_yWV29G2Xcvhj3O29C1nQJJzQX0egCt6jx5ZsvIm1GU2wp0k1fK9uJzG7g0MIr1TsLjc7__ML8-s&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Internet Marketing Media",
+  "url": "https://internetmarketingmedia.net",
+  "description": "Full-service SEO agency serving the US, UK, Europe, and Australia. Technical SEO, content strategy, link building, and local SEO in 6 languages.",
+  "telephone": "+381616014693",
+  "email": "hello@internetmarketingmedia.net",
+  "sameAs": ["https://www.facebook.com/internetmarketingmedia.net"],
+  "serviceType": "SEO Services",
+  "areaServed": ["United States","United Kingdom","Germany","Norway","Sweden","Netherlands","Australia","Serbia"],
+  "priceRange": "$799-$2499/mo",
+  "foundingLocation": {"@type": "Place","name": "Zemun, Belgrade, Serbia"}
+}
+</script>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader-wrap" id="loader">
+  <div class="loader-inner">
+    <div class="loader-dot"></div><div class="loader-dot"></div><div class="loader-dot"></div>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap" id="progressWrap">
+  <svg width="46" height="46" viewBox="-1 -1 48 48">
+    <path d="M23,1 a22,22 0 0,1 0,44 a22,22 0 0,1 0,-44" id="progressPath"/>
+  </svg>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+  <div class="nav-dropdown">
+      <a href="services.html">Services</a>
+      <div class="dropdown-menu-custom">
+<a href="technical-seo.html"><i class="fa-solid fa-microscope"></i>Technical SEO</a>
+<a href="on-page-seo.html"><i class="fa-solid fa-file-lines"></i>On-Page SEO</a>
+<a href="link-building.html"><i class="fa-solid fa-link"></i>Link Building</a>
+<a href="local-seo.html"><i class="fa-solid fa-map-location-dot"></i>Local SEO</a>
+<a href="ecommerce-seo.html"><i class="fa-solid fa-cart-shopping"></i>E-Commerce SEO</a>
+<a href="ai-seo-aeo.html"><i class="fa-solid fa-robot"></i>AI SEO &amp; AEO</a>
+<a href="youtube-seo.html"><i class="fa-brands fa-youtube"></i>YouTube SEO</a>
+<a href="seo-audit.html"><i class="fa-solid fa-chart-bar"></i>SEO Audit</a>
+<div class="dd-divider"></div>
+<a href="services.html"><i class="fa-solid fa-grid-2"></i>All Services</a>
+      </div>
+    </div>
+  <a href="locations.html">Locations</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://blog.internetmarketingmedia.net/" target="_blank">Blog</a>
+  <div class="mobile-menu-info mt-40">
+    <p>hello@internetmarketingmedia.net</p>
+    <p>+381 61 601 4693</p>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="assets/imgs/logo-imm.png" alt="Internet Marketing Media" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'color:#d0ff71;font-family:Six Caps,sans-serif;font-size:22px;letter-spacing:1px;padding:4px 8px\'>IMM</span>'">
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+<div class="nav-dropdown">
+      <a href="services.html">Services</a>
+      <div class="dropdown-menu-custom">
+      <a href="technical-seo.html"><i class="fa-solid fa-microscope"></i>Technical SEO</a>
+      <a href="on-page-seo.html"><i class="fa-solid fa-file-lines"></i>On-Page SEO</a>
+      <a href="link-building.html"><i class="fa-solid fa-link"></i>Link Building</a>
+      <a href="local-seo.html"><i class="fa-solid fa-map-location-dot"></i>Local SEO</a>
+      <a href="ecommerce-seo.html"><i class="fa-solid fa-cart-shopping"></i>E-Commerce SEO</a>
+      <a href="ai-seo-aeo.html"><i class="fa-solid fa-robot"></i>AI SEO &amp; AEO</a>
+      <a href="youtube-seo.html"><i class="fa-brands fa-youtube"></i>YouTube SEO</a>
+      <div class="dd-divider"></div>
+      <a href="services.html"><i class="fa-solid fa-grid-2"></i>All Services</a>
+      </div>
+    </div>
+      <div class="nav-dropdown">
+      <a href="industries.html">Industries</a>
+      <div class="dropdown-menu-custom">
+      <a href="seo-for-law-firms.html"><i class="fa-solid fa-gavel"></i>Law Firms</a>
+      <a href="seo-for-saas.html"><i class="fa-solid fa-microchip"></i>SaaS &amp; Tech</a>
+      <a href="seo-for-healthcare.html"><i class="fa-solid fa-heart-pulse"></i>Healthcare</a>
+      <a href="seo-for-ecommerce.html"><i class="fa-solid fa-cart-shopping"></i>E-Commerce</a>
+      <a href="seo-for-home-services.html"><i class="fa-solid fa-wrench"></i>Home Services</a>
+      <a href="seo-for-real-estate.html"><i class="fa-solid fa-building"></i>Real Estate</a>
+      <a href="seo-for-education.html"><i class="fa-solid fa-graduation-cap"></i>Education</a>
+      <a href="seo-for-travel.html"><i class="fa-solid fa-plane"></i>Travel</a>
+      <a href="seo-for-restaurants.html"><i class="fa-solid fa-utensils"></i>Restaurants</a>
+      <a href="seo-for-fitness.html"><i class="fa-solid fa-dumbbell"></i>Fitness &amp; Wellness</a>
+      <a href="seo-for-local-business.html"><i class="fa-solid fa-store"></i>Local Business</a>
+      <a href="seo-for-finance.html"><i class="fa-solid fa-money-bill-trend-up"></i>Finance</a>
+      <div class="dd-divider"></div>
+      <a href="industries.html"><i class="fa-solid fa-grid-2"></i>All Industries</a>
+      </div>
+    </div>
+      <div class="nav-dropdown">
+        <a href="locations.html">Locations</a>
+        <div class="dropdown-menu-custom">
+      <div class="has-submenu">
+        <a href="united-states-seo.html"><i class="fa-solid fa-flag-usa" style="color:var(--lime);font-size:13px;width:16px;text-align:center"></i>United States<i class="fa-solid fa-chevron-right sub-arrow" style="margin-left:auto;font-size:9px"></i></a>
+        <div class="submenu">
+          <a href="seo-agency-new-york.html">New York</a>
+          <a href="seo-agency-los-angeles.html">Los Angeles</a>
+          <a href="seo-agency-chicago.html">Chicago</a>
+          <a href="seo-agency-houston.html">Houston</a>
+          <a href="seo-agency-miami.html">Miami</a>
+          <a href="seo-agency-dallas.html">Dallas</a>
+          <a href="seo-agency-atlanta.html">Atlanta</a>
+          <a href="seo-agency-san-francisco.html">San Francisco</a>
+          <a href="seo-agency-phoenix.html">Phoenix</a>
+          <a href="seo-agency-philadelphia.html">Philadelphia</a>
+          <a href="seo-agency-seattle.html">Seattle</a>
+          <a href="seo-agency-denver.html">Denver</a>
+          <a href="seo-agency-boston.html">Boston</a>
+          <a href="seo-agency-austin.html">Austin</a>
+          <a href="seo-agency-columbus.html">Columbus</a>
+          <div class="sub-divider"></div>
+          <a href="united-states-seo.html" style="color:var(--lime)">All US cities <i class="fa-solid fa-arrow-up-right" style="font-size:9px"></i></a>
+        </div>
+      </div>
+      <a href="united-kingdom-seo.html"><i class="fa-solid fa-location-dot"></i>United Kingdom</a>
+      <a href="germany-seo.html"><i class="fa-solid fa-location-dot"></i>Germany</a>
+      <a href="norway-seo.html"><i class="fa-solid fa-location-dot"></i>Norway</a>
+      <a href="sweden-seo.html"><i class="fa-solid fa-location-dot"></i>Sweden</a>
+      <a href="netherlands-seo.html"><i class="fa-solid fa-location-dot"></i>Netherlands</a>
+      <a href="australia-seo.html"><i class="fa-solid fa-location-dot"></i>Australia</a>
+      <div class="dd-divider"></div>
+      <a href="locations.html"><i class="fa-solid fa-globe"></i>All Locations</a>
+        </div>
+      </div>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://blog.internetmarketingmedia.net/" target="_blank">Blog</a>
+    </div>
+    <div class="d-flex align-items-center" style="gap:10px">
+      <a href="contact.html" style="padding:8px 16px;border:1px solid rgba(208,255,113,.45);color:var(--lime);border-radius:30px;font-size:12px;font-weight:500;white-space:nowrap;display:none;align-items:center;gap:6px;transition:all .3s" class="d-none d-lg-flex" onmouseover="this.style.background='rgba(208,255,113,.1)'" onmouseout="this.style.background='transparent'"><i class="fa-solid fa-magnifying-glass" style="font-size:10px"></i> Free Audit</a>
+      <a href="contact.html" class="nav-cta">Start a Project <i class="fa-solid fa-arrow-up-right" style="font-size:11px"></i></a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="smooth-wrapper">
+<div id="smooth-content">
+
+<!-- ==================== Start Header (header-cst) ==================== -->
+
+<header class="header-cst">
+  <div class="container-fluid">
+    <div class="row sm-marg">
+      <div class="col-lg-6">
+        <div class="fit-img img">
+          <img src="assets/imgs/header/co.webp" loading="eager" alt="Digital marketing analytics" fetchpriority="high"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,#1a1b1e,#0e0f11)'">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="fit-img img md-hide">
+          <img src="assets/imgs/header/ct.webp" loading="eager" alt="SEO optimization results" fetchpriority="high"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,#0e0f11,#1a1b1e)'">
+        </div>
+      </div>
+    </div>
+    <div class="caption text-center">
+      <h1 class="title-font" id="heroTitle">Internet Marketing <br> Media</h1>
+      <h2 class="mt-30 fw-300" id="heroSub">Every search has a first result. We make sure it's yours.</h2>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== End Header ==================== -->
+
+
+<!-- ==================== Start Numbers (numbers-cst) ==================== -->
+
+<section class="numbers-cst section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-6 num-col wow fadeInUp slow" data-wow-delay="0.1s" data-delay="100">
+        <div class="num-item">
+          <h2 class="title-font counter" data-target="460" data-prefix="+" data-suffix="%">+0%</h2>
+          <p>Average increase in organic traffic <span>first 12 months</span></p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 num-col wow fadeInUp slow" data-wow-delay="0.2s" data-delay="200">
+        <div class="num-item">
+          <h2 class="title-font">#1&ndash;3</h2>
+          <p>Positions achieved for core keywords <span>competitive niches</span></p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 num-col wow fadeInUp slow" data-wow-delay="0.3s" data-delay="300">
+        <div class="num-item">
+          <h2 class="title-font counter" data-target="2.8" data-prefix="$" data-suffix="M+">$0M+</h2>
+          <p>Total tracked revenue generated <span>across clients in the last 24 months</span></p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 num-col wow fadeInUp slow" data-wow-delay="0.4s" data-delay="400">
+        <div class="num-item">
+          <h2 class="title-font counter" data-target="97.8" data-suffix="%">0%</h2>
+          <p>Client retention after 12 months</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== End Numbers ==================== -->
+
+
+<!-- ==================== Start Search Advantage (work-card) ==================== -->
+
+<section class="work-card section-padding">
+  <div class="analytics-head text-center wow">
+    <h2>Your <strong>Search Advantage</strong> Starts Here</h2>
+    <p>These are average results based on our client portfolio (US, Europe, global SaaS, e-commerce, and service businesses). Individual results vary depending on starting point, industry, and SEO package.</p>
+  </div>
+  <div class="container-xxl">
+    <div class="cards">
+      <div class="card-item">
+        <div class="img fit-img">
+          <img src="assets/imgs/analytics/Screenshot_2026-03-06_at_20.58.53.png" loading="lazy" alt="Client organic traffic growth - 460% in 12 months">
+          <p class="card-label">Placeholder text</p>
+        </div>
+      </div>
+      <div class="card-item">
+        <div class="img fit-img">
+          <img src="assets/imgs/analytics/Screenshot_2026-03-06_at_21.05.54.png" loading="lazy" alt="Top 3 keyword rankings achieved">
+          <p class="card-label">Placeholder text</p>
+        </div>
+      </div>
+      <div class="card-item">
+        <div class="img fit-img">
+          <img src="assets/imgs/analytics/Screenshot_2026-03-06_at_21.06.08.png" loading="lazy" alt="Revenue impact from SEO">
+          <p class="card-label">Placeholder text</p>
+        </div>
+      </div>
+      <div class="card-item">
+        <div class="img fit-img">
+          <img src="assets/imgs/analytics/Screenshot_2026-03-06_at_21.06.32.png" loading="lazy" alt="Search visibility improvements">
+          <p class="card-label">Placeholder text</p>
+        </div>
+      </div>
+      <div class="card-item">
+        <div class="img fit-img">
+          <img src="assets/imgs/analytics/Screenshot_2026-03-06_at_21.15.50.png" loading="lazy" alt="Local SEO map pack rankings">
+          <p class="card-label">Placeholder text</p>
+        </div>
+      </div>
+      <div class="card-item">
+        <div class="img fit-img">
+          <img src="assets/imgs/analytics/Screenshot_2026-03-06_at_21.16.53.png" loading="lazy" alt="E-commerce SEO results">
+          <p class="card-label">Placeholder text</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-80 wow">
+      <a href="portfolio.html" class="butn butn-md butn-bord butn-rounded">
+        <div class="d-flex align-items-center">
+          <span>Our Portfolio</span>
+          <span class="icon invert ml-10">
+            <img src="imm-net/common/imgs/icons/arrow-top-right.svg" alt="arrow" onerror="this.style.display='none'">
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== End Search Advantage ==================== -->
+
+<!-- PHILOSOPHY / CEO QUOTE -->
+<section class="section-padding" style="background:var(--bg)">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-8 wow">
+        <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:28px">Our philosophy</p>
+        <blockquote style="margin:0;padding:0;border:none">
+          <h2 style="font-size:clamp(22px,2.8vw,38px);font-weight:300;line-height:1.55;letter-spacing:-.5px;color:rgba(255,255,255,.92)">
+            &ldquo;SEO is often approached as something to manipulate. We don&rsquo;t see it that way. We treat it as a craft. When content, structure, and intent are aligned, the results take care of themselves.&rdquo;
+          </h2>
+        </blockquote>
+        <div style="display:flex;align-items:center;gap:16px;margin-top:40px">
+          <div style="width:44px;height:1px;background:rgba(255,255,255,.2)"></div>
+          <div>
+            <p style="font-size:14px;color:#fff;font-weight:500;margin-bottom:2px">Mateja</p>
+            <p style="font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:1px">Founder &amp; SEO Lead - Internet Marketing Media</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 wow" data-delay="150">
+        <div style="border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:36px">
+          <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--gray);margin-bottom:28px">What this means for you</p>
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <div style="width:6px;height:6px;border-radius:50%;background:var(--lime);margin-top:7px;flex-shrink:0"></div>
+              <p style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.7">No grey-hat shortcuts. No keyword stuffing. No link spam.</p>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <div style="width:6px;height:6px;border-radius:50%;background:var(--lime);margin-top:7px;flex-shrink:0"></div>
+              <p style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.7">Strategy built around search intent, not just search volume.</p>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <div style="width:6px;height:6px;border-radius:50%;background:var(--lime);margin-top:7px;flex-shrink:0"></div>
+              <p style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.7">Rankings that hold - because they were earned, not gamed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SEO NOW -->
+<section class="container-fluid px-3 px-md-4" style="padding-bottom:0">
+  <div class="sub-bg radius-30" style="padding:80px 0">
+    <div class="container">
+      <div class="row g-0" style="border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden">
+        <div class="col-md-4 wow" data-delay="0">
+          <div style="padding:48px 40px;border-right:1px solid rgba(255,255,255,.07)">
+            <div style="font-family:var(--ff-display);font-size:clamp(50px,6vw,72px);letter-spacing:normal;color:var(--lime);line-height:1;margin-bottom:16px">68%</div>
+            <p style="font-size:14px;line-height:1.7">of all online experiences begin with a search engine. Your customers are already searching - the question is who they find.</p>
+          </div>
+        </div>
+        <div class="col-md-4 wow" data-delay="120">
+          <div style="padding:48px 40px;border-right:1px solid rgba(255,255,255,.07)">
+            <div style="font-family:var(--ff-display);font-size:clamp(50px,6vw,72px);letter-spacing:normal;color:var(--lime);line-height:1;margin-bottom:16px">5.4×</div>
+            <p style="font-size:14px;line-height:1.7">higher click-through rate for the #1 organic result vs paid ads. SEO traffic compounds. Ad spend stops the moment you pause.</p>
+          </div>
+        </div>
+        <div class="col-md-4 wow" data-delay="240">
+          <div style="padding:48px 40px">
+            <div style="font-family:var(--ff-display);font-size:clamp(50px,6vw,72px);letter-spacing:normal;color:var(--lime);line-height:1;margin-bottom:16px">92%</div>
+            <p style="font-size:14px;line-height:1.7">of searchers never go past the first page. If you&rsquo;re not on page one, you&rsquo;re effectively invisible - regardless of how good your product is.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES - SEO ONLY -->
+<section class="services-cst" style="padding-top:100px">
+  <div class="container-fluid px-3 px-md-4">
+    <div class="light-bg section-padding radius-30">
+      <div class="container">
+        <div class="sec-head mb-80 pb-30" style="border-bottom:1px solid rgba(0,0,0,.1)">
+          <div class="d-flex align-items-center">
+            <div>
+              <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#666;margin-bottom:8px">What we do</p>
+              <h6 class="fz-40 ls2 title-font">↳ Services</h6>
+            </div>
+            <div class="ml-auto">
+              <a href="services.html" class="butn butn-rounded">
+                <span>Full service list</span>
+                <i class="fa-solid fa-arrow-up-right" style="font-size:11px"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item wow" data-delay="0">
+          <div class="numb"><h3>01.</h3></div>
+          <div class="title">
+            <h2><a href="technical-seo.html" style="color:inherit;text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='inherit'">Technical SEO</a></h2>
+            <div class="list"><span>Site Audit</span><span>Core Web Vitals</span><span>Schema</span><span>Crawlability</span></div>
+            <a href="technical-seo.html" style="font-size:12px;color:var(--lime);text-decoration:none;display:inline-flex;align-items:center;gap:5px;margin-top:6px;opacity:.8;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.8'">Learn more <i class="fa-solid fa-arrow-up-right" style="font-size:10px"></i></a>
+          </div>
+          <div class="icon"><i class="fa-solid fa-microscope" style="font-size:20px;color:#0e0f11"></i></div>
+        </div>
+
+        <div class="item wow" data-delay="60">
+          <div class="numb"><h3>02.</h3></div>
+          <div class="title">
+            <h2><a href="on-page-seo.html" style="color:inherit;text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='inherit'">On-Page SEO</a></h2>
+            <div class="list"><span>Keyword Research</span><span>Content Optimization</span><span>Internal Linking</span></div>
+            <a href="on-page-seo.html" style="font-size:12px;color:var(--lime);text-decoration:none;display:inline-flex;align-items:center;gap:5px;margin-top:6px;opacity:.8;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.8'">Learn more <i class="fa-solid fa-arrow-up-right" style="font-size:10px"></i></a>
+          </div>
+          <div class="icon"><i class="fa-solid fa-file-lines" style="font-size:20px;color:#0e0f11"></i></div>
+        </div>
+
+        <div class="item wow" data-delay="120">
+          <div class="numb"><h3>03.</h3></div>
+          <div class="title">
+            <h2><a href="link-building.html" style="color:inherit;text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='inherit'">Link Building</a></h2>
+            <div class="list"><span>Digital PR</span><span>Outreach</span><span>Competitor Analysis</span></div>
+            <a href="link-building.html" style="font-size:12px;color:var(--lime);text-decoration:none;display:inline-flex;align-items:center;gap:5px;margin-top:6px;opacity:.8;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.8'">Learn more <i class="fa-solid fa-arrow-up-right" style="font-size:10px"></i></a>
+          </div>
+          <div class="icon"><i class="fa-solid fa-link" style="font-size:20px;color:#0e0f11"></i></div>
+        </div>
+
+        <div class="item wow" data-delay="180">
+          <div class="numb"><h3>04.</h3></div>
+          <div class="title">
+            <h2><a href="local-seo.html" style="color:inherit;text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='inherit'">Local SEO</a></h2>
+            <div class="list"><span>Google Business</span><span>Map Pack</span><span>Citations</span><span>Reviews</span></div>
+            <a href="local-seo.html" style="font-size:12px;color:var(--lime);text-decoration:none;display:inline-flex;align-items:center;gap:5px;margin-top:6px;opacity:.8;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.8'">Learn more <i class="fa-solid fa-arrow-up-right" style="font-size:10px"></i></a>
+          </div>
+          <div class="icon"><i class="fa-solid fa-map-location-dot" style="font-size:20px;color:#0e0f11"></i></div>
+        </div>
+
+        <div class="item wow" data-delay="240">
+          <div class="numb"><h3>05.</h3></div>
+          <div class="title">
+            <h2><a href="ecommerce-seo.html" style="color:inherit;text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='inherit'">E-Commerce SEO</a></h2>
+            <div class="list"><span>Product Pages</span><span>Category SEO</span><span>Shopping Feed</span><span>Shopify</span></div>
+            <a href="ecommerce-seo.html" style="font-size:12px;color:var(--lime);text-decoration:none;display:inline-flex;align-items:center;gap:5px;margin-top:6px;opacity:.8;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.8'">Learn more <i class="fa-solid fa-arrow-up-right" style="font-size:10px"></i></a>
+          </div>
+          <div class="icon"><i class="fa-solid fa-cart-shopping" style="font-size:20px;color:#0e0f11"></i></div>
+        </div>
+
+        <div class="item wow" data-delay="300">
+          <div class="numb"><h3>06.</h3></div>
+          <div class="title">
+            <h2><a href="ai-seo-aeo.html" style="color:inherit;text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='inherit'">AI SEO &amp; AEO</a></h2>
+            <div class="list"><span>AI Overviews</span><span>Answer Engine Opt.</span><span>Structured Data</span><span>LLM Visibility</span></div>
+            <a href="ai-seo-aeo.html" style="font-size:12px;color:var(--lime);text-decoration:none;display:inline-flex;align-items:center;gap:5px;margin-top:6px;opacity:.8;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.8'">Learn more <i class="fa-solid fa-arrow-up-right" style="font-size:10px"></i></a>
+          </div>
+          <div class="icon"><i class="fa-solid fa-robot" style="font-size:20px;color:#0e0f11"></i></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section-padding">
+  <div class="container">
+    <div class="sec-head mb-80 pb-30 bord-thin-bottom-light wow">
+      <div class="d-flex align-items-center">
+        <div>
+          <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:8px">How we work</p>
+          <h6 class="fz-40 ls2 title-font">↳ Process</h6>
+        </div>
+      </div>
+    </div>
+    <div class="row g-0">
+
+      <div class="col-lg-3 col-sm-6 wow" data-delay="0">
+        <div style="padding:40px 36px;border-right:1px solid var(--border);height:100%">
+          <div style="font-family:var(--ff-display);font-size:72px;letter-spacing:normal;color:rgba(255,255,255,.06);line-height:1;margin-bottom:24px">01</div>
+          <div style="width:40px;height:40px;border-radius:50%;background:rgba(208,255,113,.1);border:1px solid rgba(208,255,113,.3);display:flex;align-items:center;justify-content:center;margin-bottom:20px">
+            <i class="fa-solid fa-magnifying-glass" style="font-size:16px;color:var(--lime)"></i>
+          </div>
+          <h4 style="font-size:20px;letter-spacing:-.5px;margin-bottom:12px">Audit &amp; Discovery</h4>
+          <p style="font-size:14px;line-height:1.8">Full technical and content audit. We map your current position, identify gaps, and benchmark you against the top competitors in your space.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-sm-6 wow" data-delay="100">
+        <div style="padding:40px 36px;border-right:1px solid var(--border);height:100%">
+          <div style="font-family:var(--ff-display);font-size:72px;letter-spacing:normal;color:rgba(255,255,255,.06);line-height:1;margin-bottom:24px">02</div>
+          <div style="width:40px;height:40px;border-radius:50%;background:rgba(208,255,113,.1);border:1px solid rgba(208,255,113,.3);display:flex;align-items:center;justify-content:center;margin-bottom:20px">
+            <i class="fa-solid fa-compass-drafting" style="font-size:16px;color:var(--lime)"></i>
+          </div>
+          <h4 style="font-size:20px;letter-spacing:-.5px;margin-bottom:12px">Strategy &amp; Roadmap</h4>
+          <p style="font-size:14px;line-height:1.8">Prioritized action plan: quick wins first, compounding gains second. Every task is tied to a keyword opportunity or a ranking problem - nothing vague.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-sm-6 wow" data-delay="200">
+        <div style="padding:40px 36px;border-right:1px solid var(--border);height:100%">
+          <div style="font-family:var(--ff-display);font-size:72px;letter-spacing:normal;color:rgba(255,255,255,.06);line-height:1;margin-bottom:24px">03</div>
+          <div style="width:40px;height:40px;border-radius:50%;background:rgba(208,255,113,.1);border:1px solid rgba(208,255,113,.3);display:flex;align-items:center;justify-content:center;margin-bottom:20px">
+            <i class="fa-solid fa-bolt" style="font-size:16px;color:var(--lime)"></i>
+          </div>
+          <h4 style="font-size:20px;letter-spacing:-.5px;margin-bottom:12px">Execution</h4>
+          <p style="font-size:14px;line-height:1.8">Sprint-based delivery. Technical fixes, content updates, and link outreach - implemented in clear cycles with full change logs and developer-ready briefs.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-sm-6 wow" data-delay="300">
+        <div style="padding:40px 36px;height:100%">
+          <div style="font-family:var(--ff-display);font-size:72px;letter-spacing:normal;color:rgba(255,255,255,.06);line-height:1;margin-bottom:24px">04</div>
+          <div style="width:40px;height:40px;border-radius:50%;background:rgba(208,255,113,.1);border:1px solid rgba(208,255,113,.3);display:flex;align-items:center;justify-content:center;margin-bottom:20px">
+            <i class="fa-solid fa-chart-line" style="font-size:16px;color:var(--lime)"></i>
+          </div>
+          <h4 style="font-size:20px;letter-spacing:-.5px;margin-bottom:12px">Report &amp; Iterate</h4>
+          <p style="font-size:14px;line-height:1.8">Monthly GSC and GA4-based reports. Rankings, traffic, conversions - all tracked. Each report ends with the next sprint's priorities so momentum never stops.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL COVERAGE -->
+<section class="section-padding" style="padding-bottom:0">
+  <div class="container">
+    <div class="sec-head mb-60 pb-30 bord-thin-bottom-light wow">
+      <div class="d-flex align-items-center" style="flex-wrap:wrap;gap:16px">
+        <div>
+          <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:8px">We work globally</p>
+          <h6 class="fz-40 ls2 title-font">↳ Markets We Cover</h6>
+        </div>
+        <div class="ml-auto">
+          <a href="contact.html" class="butn butn-rounded"><span>Work with us</span><i class="fa-solid fa-arrow-up-right" style="font-size:11px"></i></a>
+        </div>
+      </div>
+      <p style="max-width:660px;font-size:15px;margin-top:18px;line-height:1.8">SEO doesn&rsquo;t stop at borders. Our primary focus is the <strong style="color:#fff">US market</strong> - but we&rsquo;ve delivered results across Western Europe and the Balkans in English, German, Norwegian, Hungarian, Croatian, and Serbian. Wherever your customers search, we can rank you.</p>
+    </div>
+    <div class="row g-3">
+
+        <div class="col-12 wow" data-delay="0">
+          <div style="border:1px solid rgba(208,255,113,.35);border-radius:16px;padding:32px 36px;background:rgba(208,255,113,.05);position:relative;overflow:hidden">
+            <div style="position:absolute;top:20px;right:20px;background:var(--lime);color:#1d1d1d;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:5px 14px;border-radius:20px">Primary Market</div>
+            <div style="display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap">
+              <span style="font-size:40px;line-height:1;flex-shrink:0">&#127482;&#127480;</span>
+              <div style="flex:1;min-width:200px">
+                <p style="font-size:18px;color:#fff;font-weight:500;margin-bottom:4px;letter-spacing:-.3px">United States</p>
+                <p style="font-size:12px;color:var(--lime);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px">All industries - nationwide &amp; local</p>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <span style="font-size:12px;padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:30px;color:rgba(255,255,255,.75)">Law Firms</span>
+                  <span style="font-size:12px;padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:30px;color:rgba(255,255,255,.75)">SaaS &amp; Tech</span>
+                  <span style="font-size:12px;padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:30px;color:rgba(255,255,255,.75)">E-Commerce</span>
+                  <span style="font-size:12px;padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:30px;color:rgba(255,255,255,.75)">Healthcare</span>
+                  <span style="font-size:12px;padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:30px;color:rgba(255,255,255,.75)">Real Estate</span>
+                  <span style="font-size:12px;padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:30px;color:rgba(255,255,255,.75)">Home Services</span>
+                  <span style="font-size:12px;padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:30px;color:rgba(255,255,255,.75)">Dental &amp; Medical</span>
+                  <span style="font-size:12px;padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:30px;color:rgba(255,255,255,.75)">Finance &amp; Insurance</span>
+                  <span style="font-size:12px;padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:30px;color:rgba(255,255,255,.75)">Restaurants &amp; Hospitality</span>
+                  <span style="font-size:12px;padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:30px;color:rgba(255,255,255,.75)">Education</span>
+                  <span style="font-size:12px;padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:30px;color:rgba(255,255,255,.75)">Local Business</span>
+                  <span style="font-size:12px;padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:30px;color:rgba(255,255,255,.75)">Startups</span>
+                </div>
+              </div>
+              <div style="flex-shrink:0;align-self:center;display:flex;flex-direction:column;gap:8px;min-width:160px">
+                <a href="contact.html" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--lime);color:#1d1d1d;padding:12px 22px;border-radius:30px;font-size:13px;font-weight:600;transition:background .3s;white-space:nowrap" onmouseover="this.style.background='#fff'" onmouseout="this.style.background='var(--lime)'">
+                  Work with us <i class="fa-solid fa-arrow-up-right" style="font-size:11px"></i>
+                </a>
+                <p style="font-size:11px;color:var(--gray);text-align:center">English-language SEO specialists</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 wow" data-delay="50">
+          <div style="border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;height:100%;transition:border-color .3s,background .3s;display:flex;align-items:flex-start;gap:12px" onmouseover="this.style.borderColor='rgba(208,255,113,.35)';this.style.background='rgba(208,255,113,.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='transparent'">
+            <span style="font-size:24px;line-height:1;flex-shrink:0;margin-top:2px">&#127468;&#127463;</span>
+            <div>
+              <p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:2px">London</p>
+              <p style="font-size:11px;color:var(--lime);margin-bottom:5px">United Kingdom</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.5">Finance, retail, professional services</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 wow" data-delay="100">
+          <div style="border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;height:100%;transition:border-color .3s,background .3s;display:flex;align-items:flex-start;gap:12px" onmouseover="this.style.borderColor='rgba(208,255,113,.35)';this.style.background='rgba(208,255,113,.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='transparent'">
+            <span style="font-size:24px;line-height:1;flex-shrink:0;margin-top:2px">&#127465;&#127466;</span>
+            <div>
+              <p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:2px">Berlin</p>
+              <p style="font-size:11px;color:var(--lime);margin-bottom:5px">Germany</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.5">Tech startups, B2B, SaaS</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 wow" data-delay="150">
+          <div style="border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;height:100%;transition:border-color .3s,background .3s;display:flex;align-items:flex-start;gap:12px" onmouseover="this.style.borderColor='rgba(208,255,113,.35)';this.style.background='rgba(208,255,113,.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='transparent'">
+            <span style="font-size:24px;line-height:1;flex-shrink:0;margin-top:2px">&#127475;&#127476;</span>
+            <div>
+              <p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:2px">Oslo</p>
+              <p style="font-size:11px;color:var(--lime);margin-bottom:5px">Norway</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.5">Healthcare, retail, local business</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 wow" data-delay="200">
+          <div style="border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;height:100%;transition:border-color .3s,background .3s;display:flex;align-items:flex-start;gap:12px" onmouseover="this.style.borderColor='rgba(208,255,113,.35)';this.style.background='rgba(208,255,113,.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='transparent'">
+            <span style="font-size:24px;line-height:1;flex-shrink:0;margin-top:2px">&#127480;&#127466;</span>
+            <div>
+              <p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:2px">Stockholm</p>
+              <p style="font-size:11px;color:var(--lime);margin-bottom:5px">Sweden</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.5">E-commerce, fintech, SaaS</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 wow" data-delay="250">
+          <div style="border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;height:100%;transition:border-color .3s,background .3s;display:flex;align-items:flex-start;gap:12px" onmouseover="this.style.borderColor='rgba(208,255,113,.35)';this.style.background='rgba(208,255,113,.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='transparent'">
+            <span style="font-size:24px;line-height:1;flex-shrink:0;margin-top:2px">&#127475;&#127473;</span>
+            <div>
+              <p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:2px">Amsterdam</p>
+              <p style="font-size:11px;color:var(--lime);margin-bottom:5px">Netherlands</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.5">Travel, tech, e-commerce</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 wow" data-delay="300">
+          <div style="border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;height:100%;transition:border-color .3s,background .3s;display:flex;align-items:flex-start;gap:12px" onmouseover="this.style.borderColor='rgba(208,255,113,.35)';this.style.background='rgba(208,255,113,.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='transparent'">
+            <span style="font-size:24px;line-height:1;flex-shrink:0;margin-top:2px">&#127469;&#127482;</span>
+            <div>
+              <p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:2px">Budapest</p>
+              <p style="font-size:11px;color:var(--lime);margin-bottom:5px">Hungary</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.5">Manufacturing, retail, services</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 wow" data-delay="350">
+          <div style="border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;height:100%;transition:border-color .3s,background .3s;display:flex;align-items:flex-start;gap:12px" onmouseover="this.style.borderColor='rgba(208,255,113,.35)';this.style.background='rgba(208,255,113,.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='transparent'">
+            <span style="font-size:24px;line-height:1;flex-shrink:0;margin-top:2px">&#127469;&#127479;</span>
+            <div>
+              <p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:2px">Zagreb</p>
+              <p style="font-size:11px;color:var(--lime);margin-bottom:5px">Croatia</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.5">Tourism, real estate, local business</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 wow" data-delay="400">
+          <div style="border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;height:100%;transition:border-color .3s,background .3s;display:flex;align-items:flex-start;gap:12px" onmouseover="this.style.borderColor='rgba(208,255,113,.35)';this.style.background='rgba(208,255,113,.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='transparent'">
+            <span style="font-size:24px;line-height:1;flex-shrink:0;margin-top:2px">&#127462;&#127481;</span>
+            <div>
+              <p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:2px">Vienna</p>
+              <p style="font-size:11px;color:var(--lime);margin-bottom:5px">Austria</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.5">Professional services, e-commerce</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 wow" data-delay="450">
+          <div style="border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;height:100%;transition:border-color .3s,background .3s;display:flex;align-items:flex-start;gap:12px" onmouseover="this.style.borderColor='rgba(208,255,113,.35)';this.style.background='rgba(208,255,113,.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='transparent'">
+            <span style="font-size:24px;line-height:1;flex-shrink:0;margin-top:2px">&#127464;&#127469;</span>
+            <div>
+              <p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:2px">Zurich</p>
+              <p style="font-size:11px;color:var(--lime);margin-bottom:5px">Switzerland</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.5">Finance, pharma, B2B</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 wow" data-delay="500">
+          <div style="border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;height:100%;transition:border-color .3s,background .3s;display:flex;align-items:flex-start;gap:12px" onmouseover="this.style.borderColor='rgba(208,255,113,.35)';this.style.background='rgba(208,255,113,.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='transparent'">
+            <span style="font-size:24px;line-height:1;flex-shrink:0;margin-top:2px">&#127479;&#127480;</span>
+            <div>
+              <p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:2px">Belgrade</p>
+              <p style="font-size:11px;color:var(--lime);margin-bottom:5px">Serbia</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.5">All industries, local &amp; national</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 wow" data-delay="550">
+          <div style="border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;height:100%;transition:border-color .3s,background .3s;display:flex;align-items:flex-start;gap:12px" onmouseover="this.style.borderColor='rgba(208,255,113,.35)';this.style.background='rgba(208,255,113,.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='transparent'">
+            <span style="font-size:24px;line-height:1;flex-shrink:0;margin-top:2px">&#127462;&#127482;</span>
+            <div>
+              <p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:2px">Sydney</p>
+              <p style="font-size:11px;color:var(--lime);margin-bottom:5px">Australia</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.5">SaaS, law firms, e-commerce</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 wow" data-delay="600">
+          <div style="border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;height:100%;transition:border-color .3s,background .3s;display:flex;align-items:flex-start;gap:12px" onmouseover="this.style.borderColor='rgba(208,255,113,.35)';this.style.background='rgba(208,255,113,.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.background='transparent'">
+            <span style="font-size:24px;line-height:1;flex-shrink:0;margin-top:2px">&#127758;</span>
+            <div>
+              <p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:2px">Worldwide</p>
+              <p style="font-size:11px;color:var(--lime);margin-bottom:5px">Global</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.5">Remote-first, any market, any language</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="wow" style="margin-top:40px;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:32px 40px;display:flex;align-items:center;gap:32px;flex-wrap:wrap;background:rgba(208,255,113,.03)">
+      <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:180px">
+        <div style="font-family:var(--ff-display);font-size:56px;letter-spacing:normal;color:var(--lime);line-height:1">12+</div>
+        <p style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.6">Countries with<br>active clients</p>
+      </div>
+      <div style="width:1px;height:60px;background:rgba(255,255,255,.08);flex-shrink:0"></div>
+      <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:180px">
+        <div style="font-family:var(--ff-display);font-size:56px;letter-spacing:normal;color:var(--lime);line-height:1">6</div>
+        <p style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.6">Languages we<br>run SEO in</p>
+      </div>
+      <div style="width:1px;height:60px;background:rgba(255,255,255,.08);flex-shrink:0"></div>
+      <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:180px">
+        <div style="font-family:var(--ff-display);font-size:56px;letter-spacing:normal;color:var(--lime);line-height:1">120+</div>
+        <p style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.6">Projects delivered<br>across all markets</p>
+      </div>
+      <div style="width:1px;height:60px;background:rgba(255,255,255,.08);flex-shrink:0"></div>
+      <div style="flex:2;min-width:240px">
+        <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.8">Don&rsquo;t see your market? <a href="contact.html" style="color:var(--lime);text-decoration:underline;text-underline-offset:3px">Get in touch</a> - if your customers use Google, Bing, or an AI answer engine, we can rank you there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="container-fluid px-3 px-md-4" style="padding-bottom:100px">
+  <div class="sub-bg radius-30 section-padding">
+    <div class="container">
+      <div class="sec-head mb-80 wow">
+        <div class="d-flex align-items-center" style="flex-wrap:wrap;gap:16px">
+          <div>
+            <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:8px">Who we work with</p>
+            <h6 class="fz-40 ls2 title-font">↳ <a href="industries.html" style="color:inherit;text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='inherit'">Industries</a></h6>
+          </div>
+          <div class="ml-auto" style="display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+            <p style="max-width:280px;font-size:14px">We&rsquo;ve ranked sites in competitive verticals across multiple languages and markets.</p>
+            <a href="industries.html" style="font-size:13px;color:var(--lime);text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-weight:500">View all industries <i class="fa-solid fa-arrow-up-right" style="font-size:10px"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3">
+
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="0">
+          <a href="seo-for-law-firms.html" style="text-decoration:none;display:block;height:100%">
+            <div style="padding:28px 16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+                <i class="fa-solid fa-gavel" style="font-size:20px;color:var(--lime)"></i>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:4px">Law Firms</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.4">Legal SEO</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="40">
+          <a href="seo-for-saas.html" style="text-decoration:none;display:block;height:100%">
+            <div style="padding:28px 16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+                <i class="fa-solid fa-microchip" style="font-size:20px;color:var(--lime)"></i>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:4px">SaaS &amp; Tech</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.4">Topical Authority</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="80">
+          <a href="seo-for-healthcare.html" style="text-decoration:none;display:block;height:100%">
+            <div style="padding:28px 16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+                <i class="fa-solid fa-heart-pulse" style="font-size:20px;color:var(--lime)"></i>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:4px">Healthcare</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.4">YMYL SEO</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="120">
+          <a href="seo-for-ecommerce.html" style="text-decoration:none;display:block;height:100%">
+            <div style="padding:28px 16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+                <i class="fa-solid fa-cart-shopping" style="font-size:20px;color:var(--lime)"></i>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:4px">E-Commerce</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.4">Product &amp; Category</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="160">
+          <a href="seo-for-home-services.html" style="text-decoration:none;display:block;height:100%">
+            <div style="padding:28px 16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+                <i class="fa-solid fa-wrench" style="font-size:20px;color:var(--lime)"></i>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:4px">Home Services</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.4">Local &amp; Near-Me</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="200">
+          <a href="seo-for-real-estate.html" style="text-decoration:none;display:block;height:100%">
+            <div style="padding:28px 16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+                <i class="fa-solid fa-building" style="font-size:20px;color:var(--lime)"></i>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:4px">Real Estate</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.4">Geo-Targeted SEO</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="240">
+          <a href="seo-for-education.html" style="text-decoration:none;display:block;height:100%">
+            <div style="padding:28px 16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+                <i class="fa-solid fa-graduation-cap" style="font-size:20px;color:var(--lime)"></i>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:4px">Education</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.4">Institution SEO</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="280">
+          <a href="seo-for-travel.html" style="text-decoration:none;display:block;height:100%">
+            <div style="padding:28px 16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+                <i class="fa-solid fa-plane" style="font-size:20px;color:var(--lime)"></i>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:4px">Travel</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.4">Destination SEO</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="320">
+          <a href="seo-for-restaurants.html" style="text-decoration:none;display:block;height:100%">
+            <div style="padding:28px 16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+                <i class="fa-solid fa-utensils" style="font-size:20px;color:var(--lime)"></i>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:4px">Restaurants</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.4">Local &amp; Maps</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="360">
+          <a href="seo-for-fitness.html" style="text-decoration:none;display:block;height:100%">
+            <div style="padding:28px 16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+                <i class="fa-solid fa-dumbbell" style="font-size:20px;color:var(--lime)"></i>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:4px">Fitness &amp; Wellness</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.4">Service-Local SEO</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="400">
+          <a href="seo-for-local-business.html" style="text-decoration:none;display:block;height:100%">
+            <div style="padding:28px 16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+                <i class="fa-solid fa-store" style="font-size:20px;color:var(--lime)"></i>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:4px">Local Business</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.4">Map Pack &amp; Local</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="440">
+          <a href="seo-for-finance.html" style="text-decoration:none;display:block;height:100%">
+            <div style="padding:28px 16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+                <i class="fa-solid fa-money-bill-trend-up" style="font-size:20px;color:var(--lime)"></i>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:4px">Finance</p>
+              <p style="font-size:11px;color:var(--gray);line-height:1.4">E-A-T &amp; Trust SEO</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SEO / AEO CALLOUT -->
+<section class="section-padding">
+  <div class="container">
+    <div style="border:1px solid rgba(208,255,113,.2);border-radius:24px;padding:64px 56px;background:rgba(208,255,113,.03);position:relative;overflow:hidden">
+      <div style="position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(208,255,113,.08),transparent 70%);pointer-events:none"></div>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7 wow">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(208,255,113,.12);border:1px solid rgba(208,255,113,.25);border-radius:30px;padding:6px 16px;margin-bottom:28px">
+            <i class="fa-solid fa-robot" style="font-size:12px;color:var(--lime)"></i>
+            <span style="font-size:12px;color:var(--lime);text-transform:uppercase;letter-spacing:1px;font-weight:500">New Service</span>
+          </div>
+          <h2 style="font-size:clamp(28px,4vw,52px);letter-spacing:-2px;margin-bottom:20px;line-height:1.1">AI SEO &amp; Answer<br>Engine Optimization</h2>
+          <p style="font-size:15px;line-height:1.8;max-width:520px;margin-bottom:32px">Search is changing. Google AI Overviews, ChatGPT, Perplexity, and Gemini are now answering questions directly - without users clicking a link. We optimize your content to appear in those answers, not just the traditional blue links.</p>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:36px">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--lime);flex-shrink:0"></div>
+              <p style="font-size:14px;color:rgba(255,255,255,.75)">Structured data &amp; schema markup for AI comprehension</p>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--lime);flex-shrink:0"></div>
+              <p style="font-size:14px;color:rgba(255,255,255,.75)">Content optimized for featured snippets &amp; AI Overviews</p>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--lime);flex-shrink:0"></div>
+              <p style="font-size:14px;color:rgba(255,255,255,.75)">Brand mentions and entity signals across LLM training sources</p>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--lime);flex-shrink:0"></div>
+              <p style="font-size:14px;color:rgba(255,255,255,.75)">Q&amp;A content architecture for conversational search queries</p>
+            </div>
+          </div>
+          <a href="services.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:#1d1d1d;padding:14px 28px;border-radius:30px;font-size:14px;font-weight:600;transition:background .3s" onmouseover="this.style.background='#fff'" onmouseout="this.style.background='var(--lime)'">
+            Learn about AI SEO <i class="fa-solid fa-arrow-up-right" style="font-size:11px"></i>
+          </a>
+        </div>
+        <div class="col-lg-5 wow" data-delay="150">
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div style="background:var(--bg2);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,.06)">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+                <div style="width:8px;height:8px;border-radius:50%;background:#4ade80"></div>
+                <span style="font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1px">Google AI Overview</span>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.7">According to <strong style="color:#fff">Internet Marketing Media</strong>, the most effective SEO strategies in 2026 combine technical optimization with content that directly answers user intent at every stage of the funnel...</p>
+            </div>
+            <div style="background:var(--bg2);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,.06)">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+                <div style="width:8px;height:8px;border-radius:50%;background:#60a5fa"></div>
+                <span style="font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1px">Perplexity Answer</span>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.7">For businesses targeting competitive keywords, experts at <strong style="color:#fff">IMM</strong> recommend starting with a technical audit before any content investment...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section-padding" style="padding-bottom:0">
+  <div class="container">
+
+    <div class="sec-head mb-30 pb-30 bord-thin-bottom-light wow">
+      <div class="d-flex align-items-center" style="flex-wrap:wrap;gap:16px">
+        <div>
+          <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:8px">Transparent pricing</p>
+          <h6 class="fz-40 ls2 title-font">↳ SEO Packages</h6>
+        </div>
+        <div class="ml-auto">
+          <a href="contact.html" class="butn butn-rounded">
+            <span>Get a custom quote</span>
+            <i class="fa-solid fa-arrow-up-right" style="font-size:11px"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wow" style="margin-bottom:48px">
+      <div style="background:rgba(208,255,113,.05);border:1px solid rgba(208,255,113,.15);border-radius:16px;padding:24px 32px;display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap">
+        <i class="fa-solid fa-lightbulb" style="color:var(--lime);font-size:17px;margin-top:3px;flex-shrink:0"></i>
+        <p style="font-size:14px;color:rgba(255,255,255,.82);line-height:1.8;margin-bottom:0">
+          <strong style="color:#fff">All packages deliver the same quality of SEO work.</strong> The difference is scope and speed - higher tiers cover more of your site simultaneously, move faster through competitive keywords, and handle more complex technical situations. Every client receives a <strong style="color:#fff">daily update</strong> and a <strong style="color:#fff">monthly report</strong>, regardless of package.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+      <div class="col-md-6 col-lg-3 wow" data-delay="0">
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:40px 32px;height:100%;display:flex;flex-direction:column;background:transparent;position:relative;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(255,255,255,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.1)'">
+          
+          <div style="margin-bottom:28px">
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--gray);margin-bottom:10px">Starter</p>
+            <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:8px">
+              <span style="font-family:var(--ff-display);font-size:64px;letter-spacing:normal;color:#fff;line-height:1">799</span>
+              <span style="font-size:13px;color:var(--gray)">$ / mo</span>
+            </div>
+            <p style="font-size:13px;color:var(--gray);line-height:1.6">New or low-authority sites. Methodical, sustainable growth on a focused set of pages.</p>
+          </div>
+          <div style="flex:1;margin-bottom:24px;display:flex;flex-direction:column;gap:10px;overflow:hidden">
+            <div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Technical SEO audit</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">On-page optimization</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Basic local SEO setup</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Google Business Profile optimization</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Schema &amp; structured data</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">GSC &amp; GA4 monitoring</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Internal linking review</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Content creation (on request)</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-minus" style="color:rgba(255,255,255,.2);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.35);line-height:1.5">Link building campaign</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">AEO / AI SEO (basic)</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Competitor gap analysis (top 3)</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5"><strong style='color:#fff'>Daily</strong> progress updates</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5"><strong style='color:#fff'>Monthly</strong> performance report</p></div>
+          </div>
+          <div style="padding:12px 0 16px;border-top:1px solid rgba(255,255,255,.08)">
+            <p style="font-size:11px;color:var(--gray);line-height:1.6;margin-bottom:0"><i class="fa-solid fa-clock" style="color:var(--lime);margin-right:6px"></i>Initial ranking movement in 4–6 months on low–medium competition keywords</p>
+          </div>
+          <div style="margin-top:10px"><style>
+.pp-MYEFAM97R7DCY{text-align:center;border:none;border-radius:30px;min-width:100%;padding:0 2rem;height:2.625rem;font-weight:700;background-color:#d0ff71;color:#1d1d1d;font-family:"Inter",sans-serif;font-size:13px;line-height:1.25rem;cursor:pointer;width:100%;transition:background .3s;}
+.pp-MYEFAM97R7DCY:hover{background-color:#fff;}
+.pp-Y8VQM28KEZ3FE{text-align:center;border:none;border-radius:30px;min-width:100%;padding:0 2rem;height:2.625rem;font-weight:700;background-color:#d0ff71;color:#1d1d1d;font-family:"Inter",sans-serif;font-size:13px;line-height:1.25rem;cursor:pointer;width:100%;transition:background .3s;}
+.pp-Y8VQM28KEZ3FE:hover{background-color:#fff;}
+.pp-9J3VLSGTAZWLC{text-align:center;border:none;border-radius:30px;min-width:100%;padding:0 2rem;height:2.625rem;font-weight:700;background-color:#d0ff71;color:#1d1d1d;font-family:"Inter",sans-serif;font-size:13px;line-height:1.25rem;cursor:pointer;width:100%;transition:background .3s;}
+.pp-9J3VLSGTAZWLC:hover{background-color:#fff;}
+</style>
+<form action="https://www.paypal.com/ncp/payment/MYEFAM97R7DCY" method="post" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
+  <input class="pp-MYEFAM97R7DCY" type="submit" value="Get Started - $799/mo" />
+  <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" style="height:20px;opacity:.6">
+</form></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 wow" data-delay="100">
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:40px 32px;height:100%;display:flex;flex-direction:column;background:transparent;position:relative;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(255,255,255,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.1)'">
+          
+          <div style="margin-bottom:28px">
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--gray);margin-bottom:10px">Growth</p>
+            <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:8px">
+              <span style="font-family:var(--ff-display);font-size:64px;letter-spacing:normal;color:#fff;line-height:1">1499</span>
+              <span style="font-size:13px;color:var(--gray)">$ / mo</span>
+            </div>
+            <p style="font-size:13px;color:var(--gray);line-height:1.6">Established sites ready to compete harder. Broader coverage, faster progress.</p>
+          </div>
+          <div style="flex:1;margin-bottom:24px;display:flex;flex-direction:column;gap:10px;overflow:hidden">
+            <div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Technical SEO audit &amp; fixes</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">On-page optimization</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Local SEO &amp; map pack targeting</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Google Business Profile optimization</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Schema &amp; structured data</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">GSC &amp; GA4 monitoring</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Internal linking strategy</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Content creation (included, no cap)</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Active link building outreach</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Competitor gap analysis (in-depth)</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">AEO / AI SEO (standard)</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-minus" style="color:rgba(255,255,255,.2);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.35);line-height:1.5">CRO recommendations</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5"><strong style='color:#fff'>Daily</strong> progress updates</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5"><strong style='color:#fff'>Monthly</strong> performance report</p></div>
+          </div>
+          <div style="padding:12px 0 16px;border-top:1px solid rgba(255,255,255,.08)">
+            <p style="font-size:11px;color:var(--gray);line-height:1.6;margin-bottom:0"><i class="fa-solid fa-clock" style="color:var(--lime);margin-right:6px"></i>Visible ranking improvements in 2–4 months; content &amp; links accelerate momentum</p>
+          </div>
+          <div style="margin-top:10px">
+<form action="https://www.paypal.com/ncp/payment/Y8VQM28KEZ3FE" method="post" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
+  <input class="pp-Y8VQM28KEZ3FE" type="submit" value="Get Started - $1,499/mo" />
+  <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" style="height:20px;opacity:.6">
+</form></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 wow" data-delay="200">
+        <div style="border:1px solid var(--lime);border-radius:24px;padding:40px 32px;height:100%;display:flex;flex-direction:column;background:rgba(208,255,113,.04);position:relative;overflow:hidden;transition:border-color .3s" onmouseover="this.style.borderColor='var(--lime)'" onmouseout="this.style.borderColor='var(--lime)'">
+          <div style="position:absolute;top:18px;right:18px;background:var(--lime);color:#1d1d1d;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:5px 12px;border-radius:30px">Most popular</div>
+          <div style="margin-bottom:28px">
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:10px">Authority</p>
+            <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:8px">
+              <span style="font-family:var(--ff-display);font-size:64px;letter-spacing:normal;color:#fff;line-height:1">2499</span>
+              <span style="font-size:13px;color:var(--gray)">$ / mo</span>
+            </div>
+            <p style="font-size:13px;color:var(--gray);line-height:1.6">Competitive industries and complex sites. Full-stack SEO executed at speed.</p>
+          </div>
+          <div style="flex:1;margin-bottom:24px;display:flex;flex-direction:column;gap:10px;overflow:hidden">
+            <div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Technical SEO audit &amp; full fixes</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">On-page optimization - all pages</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Local SEO &amp; map pack targeting</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Google Business Profile optimization</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Advanced schema &amp; structured data</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">GSC &amp; GA4 monitoring &amp; dashboards</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Internal linking strategy</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Content creation (priority, no cap)</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Aggressive link building campaign</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Competitor gap analysis (full + ongoing)</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">AEO &amp; AI SEO (advanced, full stack)</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">CRO recommendations</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">E-commerce SEO (if applicable)</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Bi-weekly strategy calls</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Dedicated SEO strategist</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5"><strong style='color:#fff'>Daily</strong> progress updates</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5"><strong style='color:#fff'>Monthly</strong> performance report</p></div>
+          </div>
+          <div style="padding:12px 0 16px;border-top:1px solid rgba(255,255,255,.08)">
+            <p style="font-size:11px;color:var(--gray);line-height:1.6;margin-bottom:0"><i class="fa-solid fa-clock" style="color:var(--lime);margin-right:6px"></i>First ranking shifts in 6–10 weeks; full momentum within 3–4 months</p>
+          </div>
+          <div style="margin-top:10px">
+<form action="https://www.paypal.com/ncp/payment/9J3VLSGTAZWLC" method="post" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
+  <input class="pp-9J3VLSGTAZWLC" type="submit" value="Get Started - $2,499/mo" />
+  <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" style="height:20px;opacity:.6">
+</form></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 wow" data-delay="300">
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:40px 32px;height:100%;display:flex;flex-direction:column;background:transparent;position:relative;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(255,255,255,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.1)'">
+          
+          <div style="margin-bottom:28px">
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--gray);margin-bottom:10px">Custom</p>
+            <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:8px">
+              <span style="font-family:var(--ff-display);font-size:36px;letter-spacing:normal;color:#fff;line-height:1">Your build</span>
+              <span style="font-size:13px;color:var(--gray)"></span>
+            </div>
+            <p style="font-size:13px;color:var(--gray);line-height:1.6">You choose what you need. We scope it, price it, and deliver exactly that - nothing more, nothing less.</p>
+          </div>
+          <div style="flex:1;margin-bottom:24px;display:flex;flex-direction:column;gap:10px;overflow:hidden">
+            <div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-sliders" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Technical SEO sprint</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-sliders" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">One-time SEO audit only</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-sliders" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Link building campaign only</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-sliders" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Local SEO standalone</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-sliders" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">AEO &amp; AI SEO standalone</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-sliders" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">E-commerce SEO only</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-sliders" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">Multi-market / multilingual SEO</p></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-sliders" style="color:var(--lime);font-size:10px;margin-top:5px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.5">White-label SEO for agencies</p></div>
+          </div>
+          <div style="padding:12px 0 16px;border-top:1px solid rgba(255,255,255,.08)">
+            <p style="font-size:11px;color:var(--gray);line-height:1.6;margin-bottom:0"><i class="fa-solid fa-clock" style="color:var(--lime);margin-right:6px"></i>Free 30-min scoping call - fixed quote within 24 hours</p>
+          </div>
+          <a href="contact.html" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:30px;font-size:13px;font-weight:600;transition:all .3s;margin-top:8px;background:transparent;color:inherit;border:1px solid rgba(255,255,255,.2)" onmouseover="this.style.background='rgba(255,255,255,.08)'" onmouseout="this.style.background='transparent'">
+            Let's talk <i class="fa-solid fa-arrow-up-right" style="font-size:10px"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wow" style="margin-top:48px;padding:40px 48px;background:var(--bg2);border-radius:20px;display:flex;align-items:flex-start;gap:40px;flex-wrap:wrap">
+      <div style="flex:1;min-width:240px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(208,255,113,.1);border:1px solid rgba(208,255,113,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <i class="fa-solid fa-calendar-day" style="color:var(--lime);font-size:14px"></i>
+          </div>
+          <h4 style="font-size:17px;letter-spacing:-.3px">Daily Updates</h4>
+        </div>
+        <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,.6)">Every working day you receive a clear summary of exactly what was done - pages optimized, links built, technical fixes pushed, content published. No guessing, no radio silence.</p>
+      </div>
+      <div style="width:1px;background:rgba(255,255,255,.07);align-self:stretch;flex-shrink:0"></div>
+      <div style="flex:1;min-width:240px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(208,255,113,.1);border:1px solid rgba(208,255,113,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <i class="fa-solid fa-chart-bar" style="color:var(--lime);font-size:14px"></i>
+          </div>
+          <h4 style="font-size:17px;letter-spacing:-.3px">Monthly Reports</h4>
+        </div>
+        <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,.6)">Full GSC &amp; GA4 report each month: keyword ranking movement, organic traffic changes, conversion data, and the next sprint&rsquo;s prioritized action plan.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="container-fluid px-3 px-md-4" style="padding-bottom:0">
+  <div class="sub-bg radius-30" style="padding:80px 0">
+    <div class="container">
+      <div class="sec-head mb-60 wow">
+        <div class="d-flex align-items-center" style="flex-wrap:wrap;gap:16px">
+          <div>
+            <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:8px">Our arsenal</p>
+            <h6 class="fz-40 ls2 title-font">↳ Tools We Use</h6>
+          </div>
+          <div class="ml-auto"><p style="max-width:260px;font-size:14px">Industry-standard tools - so our data is always accurate and our decisions always justified.</p></div>
+        </div>
+      </div>
+      <div class="row g-3 justify-content-center">
+
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="0">
+          <div style="border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px 14px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.2)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+            <img src="assets/imgs/clients/semrush.png" alt="Semrush" loading="lazy" style="max-height:26px;width:auto;margin:0 auto 10px;filter:brightness(0) invert(1);opacity:.7;display:block" onerror="this.style.display='none'">
+            <p style="font-size:12px;color:rgba(255,255,255,.8);font-weight:500;margin-bottom:4px">Semrush</p>
+            <p style="font-size:10px;color:var(--gray);line-height:1.4">Keyword &amp; competitor research</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="50">
+          <div style="border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px 14px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.2)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+            <img src="assets/imgs/clients/ahrefs.jpg" alt="Ahrefs" loading="lazy" style="max-height:26px;width:auto;margin:0 auto 10px;filter:brightness(0) invert(1);opacity:.7;display:block" onerror="this.style.display='none'">
+            <p style="font-size:12px;color:rgba(255,255,255,.8);font-weight:500;margin-bottom:4px">Ahrefs</p>
+            <p style="font-size:10px;color:var(--gray);line-height:1.4">Backlink &amp; ranking analysis</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="100">
+          <div style="border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px 14px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.2)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+            <img src="assets/imgs/clients/screamingfrog.png" alt="Screaming Frog" loading="lazy" style="max-height:26px;width:auto;margin:0 auto 10px;filter:brightness(0) invert(1);opacity:.7;display:block" onerror="this.style.display='none'">
+            <p style="font-size:12px;color:rgba(255,255,255,.8);font-weight:500;margin-bottom:4px">Screaming Frog</p>
+            <p style="font-size:10px;color:var(--gray);line-height:1.4">Technical site crawling</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="150">
+          <div style="border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px 14px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.2)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+            <i class="fa-brands fa-google" style="font-size:22px;color:rgba(255,255,255,.55);display:block;margin-bottom:10px"></i>
+            <p style="font-size:12px;color:rgba(255,255,255,.8);font-weight:500;margin-bottom:4px">Google Search Console</p>
+            <p style="font-size:10px;color:var(--gray);line-height:1.4">Impressions, CTR, index coverage</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="200">
+          <div style="border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px 14px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.2)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+            <i class="fa-solid fa-chart-bar" style="font-size:22px;color:rgba(255,255,255,.55);display:block;margin-bottom:10px"></i>
+            <p style="font-size:12px;color:rgba(255,255,255,.8);font-weight:500;margin-bottom:4px">GA4</p>
+            <p style="font-size:10px;color:var(--gray);line-height:1.4">Traffic &amp; conversion tracking</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="250">
+          <div style="border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px 14px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.2)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+            <i class="fa-solid fa-robot" style="font-size:22px;color:rgba(255,255,255,.55);display:block;margin-bottom:10px"></i>
+            <p style="font-size:12px;color:rgba(255,255,255,.8);font-weight:500;margin-bottom:4px">AI Monitoring</p>
+            <p style="font-size:10px;color:var(--gray);line-height:1.4">LLM &amp; AEO visibility tracking</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="300">
+          <div style="border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px 14px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.2)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+            <i class="fa-solid fa-link" style="font-size:22px;color:rgba(255,255,255,.55);display:block;margin-bottom:10px"></i>
+            <p style="font-size:12px;color:rgba(255,255,255,.8);font-weight:500;margin-bottom:4px">Link Affinity</p>
+            <p style="font-size:10px;color:var(--gray);line-height:1.4">Outreach &amp; link prospecting</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="350">
+          <div style="border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px 14px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.2)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+            <i class="fa-brands fa-wordpress" style="font-size:22px;color:rgba(255,255,255,.55);display:block;margin-bottom:10px"></i>
+            <p style="font-size:12px;color:rgba(255,255,255,.8);font-weight:500;margin-bottom:4px">Yoast / RankMath</p>
+            <p style="font-size:10px;color:var(--gray);line-height:1.4">On-page CMS optimization plugins</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 wow" data-delay="400">
+          <div style="border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px 14px;text-align:center;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.2)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+            <i class="fa-solid fa-satellite-dish" style="font-size:22px;color:rgba(255,255,255,.55);display:block;margin-bottom:10px"></i>
+            <p style="font-size:12px;color:rgba(255,255,255,.8);font-weight:500;margin-bottom:4px">GSC API</p>
+            <p style="font-size:10px;color:var(--gray);line-height:1.4">Automated data pulls &amp; reporting</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-padding" style="padding-top:0">
+  <div class="container">
+    <div class="sec-head mb-80 pb-30 bord-thin-bottom-light wow">
+      <div class="d-flex align-items-center" style="flex-wrap:wrap;gap:16px">
+        <h6 class="fz-40 ls2 title-font">↳ FAQ</h6>
+        <div class="ml-auto">
+          <a href="contact.html" class="butn butn-rounded">
+            <span>Get a Free SEO Audit</span>
+            <i class="fa-solid fa-arrow-up-right" style="font-size:11px"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row g-5">
+      <div class="col-lg-8">
+
+        <div class="faq-item wow">
+          <div class="faq-q" style="font-size:17px;padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--border);transition:color .2s">
+            How long before SEO shows results?
+            <span class="faq-icon" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;transition:all .3s"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
+            <p style="font-size:14px;line-height:1.8;padding:20px 0 24px">Most clients see meaningful ranking movement within 3–6 months. Technical fixes and on-page improvements can show crawlability gains faster; competitive keywords in markets like US law or finance typically take 6–12 months of sustained, consistent work.</p>
+          </div>
+        </div>
+        <div class="faq-item wow" data-delay="60">
+          <div class="faq-q" style="font-size:17px;padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--border);transition:color .2s">
+            What is AEO and why does it matter now?
+            <span class="faq-icon" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;transition:all .3s"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
+            <p style="font-size:14px;line-height:1.8;padding:20px 0 24px">Answer Engine Optimization is the practice of making your content appear inside AI-generated answers - from Google AI Overviews to ChatGPT, Perplexity, and Gemini. These tools are now answering millions of queries directly. If your content isn't structured to be cited by them, you're invisible in a growing share of search. We optimize for both traditional rankings and AI answer placement.</p>
+          </div>
+        </div>
+        <div class="faq-item wow" data-delay="120">
+          <div class="faq-q" style="font-size:17px;padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--border);transition:color .2s">
+            What makes your approach different?
+            <span class="faq-icon" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;transition:all .3s"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
+            <p style="font-size:14px;line-height:1.8;padding:20px 0 24px">We don't sell packages and disappear. Every client gets a dedicated strategist, a daily update on what was done, and a monthly report tied to real business metrics - not just rankings. We combine technical precision with content strategy, and we're one of the few agencies actively optimizing for AI search in addition to traditional SEO.</p>
+          </div>
+        </div>
+        <div class="faq-item wow" data-delay="180">
+          <div class="faq-q" style="font-size:17px;padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--border);transition:color .2s">
+            Do you offer one-time audits or only retainers?
+            <span class="faq-icon" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;transition:all .3s"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
+            <p style="font-size:14px;line-height:1.8;padding:20px 0 24px">Both. One-time technical audits come with a full prioritized action report you can hand off to any developer. Ongoing retainers are recommended for compounding growth, but we don't lock anyone into long contracts - results earn retention.</p>
+          </div>
+        </div>
+        <div class="faq-item wow" data-delay="240">
+          <div class="faq-q" style="font-size:17px;padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--border);transition:color .2s">
+            What does the free SEO audit cover?
+            <span class="faq-icon" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;transition:all .3s"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
+            <p style="font-size:14px;line-height:1.8;padding:20px 0 24px">Our free audit covers: technical health (crawlability, indexation, Core Web Vitals), on-page basics (title tags, meta descriptions, heading structure), backlink profile overview, and a quick competitor gap snapshot. You'll receive a clear, jargon-free report within 48 hours - no strings attached.</p>
+          </div>
+        </div>
+        <div class="faq-item wow" data-delay="300">
+          <div class="faq-q" style="font-size:17px;padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--border);transition:color .2s">
+            How do you report progress?
+            <span class="faq-icon" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;transition:all .3s"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
+            <p style="font-size:14px;line-height:1.8;padding:20px 0 24px">Two ways: every working day you receive a short written update covering exactly what was done on your site that day. At the end of each month, you get a full GSC and GA4-based report covering keyword ranking movement, organic traffic changes, conversion data, and the priorities for the next sprint.</p>
+          </div>
+        </div>
+        <div class="faq-item wow" data-delay="360">
+          <div class="faq-q" style="font-size:17px;padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--border);transition:color .2s">
+            Do I need to change my website for SEO to work?
+            <span class="faq-icon" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;transition:all .3s"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
+            <p style="font-size:14px;line-height:1.8;padding:20px 0 24px">Sometimes, yes - but we scope that upfront. Technical issues like slow load times, broken pages, or poor mobile experience do need to be fixed for SEO to perform. We identify exactly what needs changing, write developer-ready briefs, and can coordinate with your existing team or handle implementation ourselves.</p>
+          </div>
+        </div>
+        <div class="faq-item wow" data-delay="420">
+          <div class="faq-q" style="font-size:17px;padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--border);transition:color .2s">
+            Can SEO work alongside Google Ads?
+            <span class="faq-icon" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;transition:all .3s"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
+            <p style="font-size:14px;line-height:1.8;padding:20px 0 24px">Absolutely - and they work better together. Google Ads gives you immediate visibility while SEO compounds over time. We can advise on how to coordinate both channels so they reinforce each other: using paid search data to inform organic keyword targeting, and organic rankings to reduce your cost-per-click on branded terms.</p>
+          </div>
+        </div>
+        <div class="faq-item wow" data-delay="480">
+          <div class="faq-q" style="font-size:17px;padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--border);transition:color .2s">
+            How much does it cost to get started?
+            <span class="faq-icon" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;transition:all .3s"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
+            <p style="font-size:14px;line-height:1.8;padding:20px 0 24px">Our packages start at 799$/month. We also offer standalone one-time audits if you're not ready for a retainer. Every engagement begins with a free SEO audit so you can see exactly where you stand - and what we'd do about it - before committing to anything.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FREE AUDIT STICKY CARD -->
+      <div class="col-lg-4 wow" data-delay="100">
+        <div style="position:sticky;top:120px;border:1px solid rgba(208,255,113,.3);border-radius:20px;padding:40px 32px;background:rgba(208,255,113,.04)">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(208,255,113,.12);border:1px solid rgba(208,255,113,.2);border-radius:30px;padding:5px 14px;margin-bottom:24px">
+            <i class="fa-solid fa-magnifying-glass" style="font-size:11px;color:var(--lime)"></i>
+            <span style="font-size:11px;color:var(--lime);text-transform:uppercase;letter-spacing:1px;font-weight:600">Free Offer</span>
+          </div>
+          <h3 style="font-size:clamp(22px,2.5vw,28px);letter-spacing:-.5px;margin-bottom:16px;line-height:1.2">Get a Free SEO Audit</h3>
+          <p style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:28px">We'll analyze your site's technical health, on-page SEO, backlink profile, and competitive position - and send you a clear action report within 48 hours. No sales call required.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px">
+            <div style="display:flex;gap:10px;align-items:center">
+              <i class="fa-solid fa-check" style="color:var(--lime);font-size:11px;flex-shrink:0"></i>
+              <p style="font-size:13px;color:rgba(255,255,255,.75)">Technical health check</p>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center">
+              <i class="fa-solid fa-check" style="color:var(--lime);font-size:11px;flex-shrink:0"></i>
+              <p style="font-size:13px;color:rgba(255,255,255,.75)">On-page SEO review</p>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center">
+              <i class="fa-solid fa-check" style="color:var(--lime);font-size:11px;flex-shrink:0"></i>
+              <p style="font-size:13px;color:rgba(255,255,255,.75)">Backlink profile overview</p>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center">
+              <i class="fa-solid fa-check" style="color:var(--lime);font-size:11px;flex-shrink:0"></i>
+              <p style="font-size:13px;color:rgba(255,255,255,.75)">Competitor gap snapshot</p>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center">
+              <i class="fa-solid fa-check" style="color:var(--lime);font-size:11px;flex-shrink:0"></i>
+              <p style="font-size:13px;color:rgba(255,255,255,.75)">Delivered within 48 hours</p>
+            </div>
+          </div>
+          <a href="contact.html" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:30px;background:var(--lime);color:#1d1d1d;font-size:14px;font-weight:700;transition:background .3s;text-decoration:none" onmouseover="this.style.background='#fff'" onmouseout="this.style.background='var(--lime)'">
+            Request Free Audit <i class="fa-solid fa-arrow-up-right" style="font-size:11px"></i>
+          </a>
+          <p style="font-size:11px;color:var(--gray);text-align:center;margin-top:14px">No commitment. No credit card. Just data.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-sa pb-80">
+  <div class="container section-padding">
+
+    <!-- CTA -->
+    <div class="call-action text-center mb-80">
+      <h2 class="title-font"><a href="contact.html">Contact</a></h2>
+    </div>
+
+    <!-- MAIN FOOTER GRID -->
+    <div class="row g-5">
+
+      <!-- Brand col -->
+      <div class="col-lg-4 col-md-12">
+        <a href="index.html" class="logo d-block mb-24">
+          <img src="assets/imgs/logo-imm.png" alt="Internet Marketing Media" style="filter:invert(1);max-width:120px"
+            onerror="this.outerHTML='<span style=\'font-family:Six Caps,sans-serif;font-size:28px;color:#d0ff71;letter-spacing:1px\'>IMM</span>'">
+        </a>
+        <p style="font-size:14px;color:rgba(255,255,255,.55);line-height:1.8;max-width:280px;margin-bottom:28px">Full-service SEO for businesses in the US, UK, Europe, and Australia. English, German, Norwegian, Hungarian, Croatian, and Serbian.</p>
+        <div class="social-icon">
+          <a href="https://www.facebook.com/internetmarketingmedia.net" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Services col -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:20px">Services</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="technical-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Technical SEO</a>
+          <a href="on-page-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">On-Page SEO</a>
+          <a href="link-building.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Link Building</a>
+          <a href="local-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Local SEO</a>
+          <a href="ecommerce-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">E-Commerce SEO</a>
+          <a href="ai-seo-aeo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">AI SEO &amp; AEO</a>
+          <a href="youtube-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">YouTube SEO</a>
+        </div>
+      </div>
+
+      <!-- Industries col -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:20px">Industries</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="seo-for-law-firms.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Law Firms</a>
+          <a href="seo-for-saas.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">SaaS &amp; Tech</a>
+          <a href="seo-for-healthcare.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Healthcare</a>
+          <a href="seo-for-ecommerce.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">E-Commerce</a>
+          <a href="seo-for-real-estate.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Real Estate</a>
+          <a href="seo-for-finance.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Finance</a>
+          <a href="industries.html" style="font-size:13px;color:var(--lime);transition:color .2s">All industries &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Locations col -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:20px">Locations</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="seo-agency-new-york.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">New York</a>
+          <a href="seo-agency-los-angeles.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Los Angeles</a>
+          <a href="seo-agency-chicago.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Chicago</a>
+          <a href="seo-agency-miami.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Miami</a>
+          <a href="seo-agency-houston.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Houston</a>
+          <a href="seo-agency-san-francisco.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">San Francisco</a>
+          <a href="united-states-seo.html" style="font-size:13px;color:var(--lime);transition:color .2s">All US cities &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Contact col -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:20px">Contact</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px">
+          <a href="mailto:hello@internetmarketingmedia.net" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s;word-break:break-all" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">hello@internetmarketingmedia.net</a>
+          <a href="tel:+381616014693" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">+381 61 601 4693</a>
+        </div>
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:16px">Company</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="about.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">About</a>
+          <a href="pricing.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Pricing</a>
+          <a href="https://blog.internetmarketingmedia.net/" target="_blank" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Blog</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SUB FOOTER -->
+  <div class="container">
+    <div class="sub-footer">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="copy">
+            <p>&#169; 2026 <a href="index.html">Internet Marketing Media</a>. All rights reserved.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end">
+          <div class="links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="cookie-policy.html">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</div><!-- /#smooth-content -->
+</div><!-- /#smooth-wrapper -->
+
+<!-- JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+(function(){
+  "use strict";
+
+  /* --- LOADER --- */
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      document.getElementById('loader').classList.add('hidden');
+      /* Hero animate */
+      var h = document.getElementById('heroTitle');
+      var s = document.getElementById('heroSub');
+      if(h){ h.classList.add('visible'); }
+      if(s){ setTimeout(function(){ s.classList.add('visible'); }, 200); }
+      /* Trigger counters & wow */
+      initWow();
+      runCounters();
+    }, 600);
+  });
+
+  /* --- HAMBURGER --- */
+  var ham = document.getElementById('hamburger');
+  var mob = document.getElementById('mobileMenu');
+  if(ham){
+    ham.addEventListener('click', function(){
+      mob.classList.toggle('open');
+      var spans = ham.querySelectorAll('span');
+      if(mob.classList.contains('open')){
+        spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      }
+    });
+  }
+
+  /* --- PROGRESS SCROLL --- */
+  var pw = document.getElementById('progressWrap');
+  var pp = document.getElementById('progressPath');
+  window.addEventListener('scroll', function(){
+    var st = window.scrollY;
+    var dh = document.body.scrollHeight - window.innerHeight;
+    var pct = st / dh;
+    if(pw){
+      pw.classList.toggle('active-progress', st > 300);
+    }
+    if(pp){
+      var total = 307;
+      pp.style.strokeDashoffset = total - (total * pct);
+    }
+  });
+  if(pw){
+    pw.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  }
+
+  /* --- WOW (simple intersection observer) --- */
+  function initWow(){
+    var els = document.querySelectorAll('.wow');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('animated'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var delay = e.target.dataset.delay || 0;
+          setTimeout(function(){ e.target.classList.add('animated'); }, +delay);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    els.forEach(function(el){ io.observe(el); });
+  }
+
+  /* --- COUNTERS --- */
+  function runCounters(){
+    var els = document.querySelectorAll('.counter');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.textContent = (el.dataset.prefix||'') + el.dataset.target + (el.dataset.suffix||''); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          animCounter(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: .5 });
+    els.forEach(function(el){ io.observe(el); });
+  }
+  function animCounter(el){
+    var target = parseFloat(el.dataset.target);
+    var prefix = el.dataset.prefix || '';
+    var suffix = el.dataset.suffix || '';
+    var dec = (el.dataset.target.indexOf('.') > -1) ? 1 : 0;
+    var start = 0; var dur = 2000; var step = 16;
+    var inc = target / (dur / step);
+    var t = setInterval(function(){
+      start += inc;
+      if(start >= target){ start = target; clearInterval(t); }
+      el.textContent = prefix + start.toFixed(dec) + suffix;
+    }, step);
+  }
+
+  /* --- ACCORDION --- */
+  document.querySelectorAll('.accordion .accordion-item').forEach(function(item){
+    item.addEventListener('click', function(){
+      this.classList.toggle('active');
+    });
+  });
+
+})();
+</script>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click', function(){
+    var item = this.closest('.faq-item');
+    var isOpen = item.classList.contains('faq-open');
+    // close all
+    document.querySelectorAll('.faq-item').forEach(function(i){
+      i.classList.remove('faq-open');
+      var a = i.querySelector('.faq-a');
+      var ic = i.querySelector('.faq-icon');
+      if(a) a.style.maxHeight = '0';
+      if(ic){ ic.style.background='transparent'; ic.style.borderColor='rgba(255,255,255,.1)'; ic.style.transform='rotate(0deg)'; ic.style.color='inherit'; }
+      var qq = i.querySelector('.faq-q');
+      if(qq) qq.style.color = '';
+    });
+    // open clicked if was closed
+    if(!isOpen){
+      item.classList.add('faq-open');
+      var a = item.querySelector('.faq-a');
+      var ic = item.querySelector('.faq-icon');
+      if(a) a.style.maxHeight = '300px';
+      if(ic){ ic.style.background='var(--lime)'; ic.style.borderColor='var(--lime)'; ic.style.transform='rotate(45deg)'; ic.style.color='#1d1d1d'; }
+      this.style.color = 'var(--lime)';
+    }
+  });
+});
+</script>
+<script src="assets/js/new-index-sections.js" defer></script>
+</body>
+</html>

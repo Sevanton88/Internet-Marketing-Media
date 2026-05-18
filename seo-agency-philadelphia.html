@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>Philadelphia SEO Agency | Internet Marketing Media</title>
+<meta name="description" content="SEO for Philadelphia businesses. Healthcare, legal, education, and finance SEO across Philly and the Main Line. Free Philadelphia SEO audit.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://internetmarketingmedia.net/seo-agency-philadelphia.html">
+<meta property="og:title" content="Philadelphia SEO Agency - Internet Marketing Media">
+<meta property="og:url" content="https://internetmarketingmedia.net/seo-agency-philadelphia.html">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Internet Marketing Media - Philadelphia SEO Agency","url":"https://internetmarketingmedia.net/seo-agency-philadelphia.html","description":"SEO for Philadelphia businesses. Healthcare, legal, education, and finance SEO across Philly and the Main Line.","areaServed":{"@type":"City","name":"Philadelphia"},"serviceType":"SEO Services","priceRange":"$799-$2499/mo"}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&family=Six+Caps&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F1ZML705G2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-F1ZML705G2");</script>
+<style>
+/* ===== VARIABLES ===== */
+:root {
+  --bg: #0e0f11;
+  --bg2: #18191b;
+  --lime: #d0ff71;
+  --white: #fff;
+  --gray: #a4a4a4;
+  --border: rgba(255,255,255,0.1);
+  --ff-body: 'Inter', sans-serif;
+  --ff-display: 'Six Caps', sans-serif;
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--white);
+  background-color: var(--bg);
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; transition: color .3s; }
+img { max-width: 100%; display: block; }
+h1,h2,h3,h4,h5,h6 { font-weight: 400; margin: 0; line-height: 1.1; }
+h1 { font-size: clamp(42px,6vw,70px); letter-spacing: -3px; }
+h2 { font-size: clamp(30px,4vw,50px); letter-spacing: -2px; }
+h3 { font-size: clamp(26px,3vw,40px); letter-spacing: -1px; }
+h4 { font-size: 28px; }
+h5 { font-size: 22px; letter-spacing: -.5px; }
+h6 { font-size: 18px; }
+p { font-size: 15px; color: var(--gray); line-height: 1.7; }
+.section-padding { padding: 100px 0; }
+.sub-bg { background: var(--bg2); }
+.light-bg { background: #fff; color: #0e0f11; }
+.light-bg p { color: #555; }
+.sub-color { color: var(--gray); }
+.title-font { font-family: var(--ff-display); letter-spacing: normal; }
+.main-color { color: var(--lime); }
+.radius-30 { border-radius: 30px; }
+.bord-thin-bottom-light { border-bottom: 1px solid var(--border); }
+.bord-thin-top-light { border-top: 1px solid var(--border); }
+
+/* ===== LOADER ===== */
+.loader-wrap {
+  position: fixed; inset: 0; z-index: 99999;
+  background: var(--bg); display: flex; align-items: center; justify-content: center;
+  transition: opacity .6s .2s, visibility .6s .2s;
+}
+.loader-wrap.hidden { opacity: 0; visibility: hidden; }
+.loader-inner { display: flex; gap: 8px; }
+.loader-dot {
+  width: 10px; height: 10px; border-radius: 50%; background: var(--lime);
+  animation: ldot .8s infinite alternate;
+}
+.loader-dot:nth-child(2) { animation-delay: .2s; }
+.loader-dot:nth-child(3) { animation-delay: .4s; }
+@keyframes ldot { from { transform: translateY(0); opacity: .4; } to { transform: translateY(-15px); opacity: 1; } }
+
+/* ===== PROGRESS ===== */
+.progress-wrap {
+  position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+  width: 46px; height: 46px; cursor: pointer;
+  opacity: 0; visibility: hidden; transition: all .4s;
+}
+.progress-wrap.active-progress { opacity: 1; visibility: visible; }
+.progress-wrap svg { transform: rotate(-90deg); }
+.progress-wrap svg path {
+  fill: none; stroke: var(--lime); stroke-width: 4;
+  stroke-dasharray: 307; stroke-dashoffset: 307;
+  transition: stroke-dashoffset .3s;
+}
+.progress-wrap::after {
+  content: '\f077'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--white);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed; top: 20px; left: 0; width: 100%;
+  padding: 0 15px; z-index: 9999; transition: top .3s;
+}
+.navbar-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1400px; margin: 0 auto;
+  background: rgba(14,15,17,.7); backdrop-filter: blur(20px);
+  border: 1px solid var(--border); border-radius: 50px; padding: 8px 12px;
+}
+.nav-logo { width: 130px; padding: 4px 12px; border: 1px solid var(--border); border-radius: 30px; }
+.nav-logo img { width: 100%; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a {
+  padding: 6px 16px; border-radius: 30px; font-size: 13px; color: rgba(255,255,255,.7);
+  transition: all .2s; white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,.1); color: #fff; }
+.nav-cta {
+  padding: 8px 20px; background: #fff; color: #1d1d1d !important;
+  border-radius: 30px; font-size: 13px; font-weight: 500; white-space: nowrap;
+  display: flex; align-items: center; gap: 6px; transition: background .3s;
+}
+.nav-cta:hover { background: var(--lime) !important; }
+.d-lg-flex { display: flex !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all .3s; }
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed; inset: 0; background: var(--bg); z-index: 9998;
+  transform: translateX(100%); transition: transform .4s cubic-bezier(.77,0,.175,1);
+  display: flex; flex-direction: column; padding: 100px 40px 40px;
+}
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a {
+  font-size: clamp(28px,6vw,42px); font-weight: 300; letter-spacing: -1px;
+  padding: 12px 0; border-bottom: 1px solid var(--border); color: #fff;
+  display: block; transition: color .2s;
+}
+.mobile-menu a:hover { color: var(--lime); }
+.mobile-menu-info { margin-top: auto; }
+.mobile-menu-info p { font-size: 13px; color: var(--gray); margin-bottom: 4px; }
+
+/* ===== BUTTONS ===== */
+.butn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 24px; border-radius: 30px; font-size: 14px; font-weight: 500;
+  cursor: pointer; transition: all .3s; border: none; background: transparent; color: inherit;
+}
+.butn-rounded { border: 1px solid var(--border); }
+.butn-rounded:hover { background: #fff; color: #1d1d1d; }
+.butn-dark { background: var(--bg2); border: 1px solid var(--border); }
+.butn-dark:hover { background: var(--lime); color: #1d1d1d; border-color: var(--lime); }
+.butn .icon { width: 16px; flex-shrink: 0; }
+.butn .icon img { width: 100%; filter: invert(1); }
+.butn:hover .icon img { filter: none; }
+.light-bg .butn-rounded { border-color: rgba(0,0,0,.2); color: #1d1d1d; }
+.light-bg .butn-rounded:hover { background: var(--lime); color: #1d1d1d; border-color: transparent; }
+.light-bg .butn .icon img { filter: none; }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden; background: var(--bg);
+}
+.hero-images {
+  position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr;
+}
+.hero-img {
+  height: 100%; overflow: hidden;
+}
+.hero-img img { width: 100%; height: 100%; object-fit: cover; }
+.hero-grad {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, var(--bg) 40%, transparent 100%);
+  z-index: 2;
+}
+.hero-caption {
+  position: relative; z-index: 3;
+  text-align: center; padding: 0 20px 60px;
+}
+.hero-caption h1 {
+  font-family: var(--ff-display);
+  font-size: clamp(60px, 14vw, 180px);
+  font-weight: 500; text-transform: uppercase; letter-spacing: normal; line-height: .95;
+  transform: scaleX(1.4); opacity: 0;
+  transition: transform 1.2s cubic-bezier(.16,1,.3,1), opacity 1s ease;
+}
+.hero-caption h1.visible { transform: scaleX(1); opacity: 1; }
+.hero-caption h2 {
+  font-size: clamp(14px, 2vw, 22px); font-weight: 300; letter-spacing: -.5px;
+  color: rgba(255,255,255,.7); margin-top: 20px;
+  opacity: 0; transform: translateY(20px);
+  transition: all .8s ease 1s;
+}
+.hero-caption h2.visible { opacity: 1; transform: translateY(0); }
+.hero-img-right { display: block; }
+
+/* ===== NUMBERS ===== */
+.numbers-cst { border-top: 1px solid var(--border); }
+.num-col {
+  padding: 60px 20px; text-align: center;
+  border-right: 1px solid var(--border);
+}
+.num-col:last-child { border-right: none; }
+.num-item h2 {
+  font-family: var(--ff-display); font-size: clamp(55px, 8vw, 110px);
+  letter-spacing: normal; color: #fff; margin-bottom: 12px;
+}
+.num-item p { font-size: 12px; color: #888; line-height: 1.5; }
+.num-item p span { display: block; color: #555; font-size: 11px; margin-top: 4px; }
+
+/* ===== SEARCH ADVANTAGE ===== */
+.analytics-head { text-align: center; padding: 0 15px; margin-bottom: 60px; }
+.analytics-head h2 { font-size: clamp(28px,4vw,56px); font-weight: 400; letter-spacing: -2px; margin-bottom: 16px; }
+.analytics-head h2 strong { font-weight: 700; color: var(--lime); }
+.analytics-head p { max-width: 660px; margin: 0 auto; font-size: 13px; color: #555; }
+
+/* Stacked cards */
+.cards-wrap { position: relative; }
+.card-item {
+  margin-bottom: 24px; border-radius: 20px; overflow: hidden;
+  transition: transform .4s;
+}
+.card-item:hover { transform: translateY(-4px); }
+.card-item .img {
+  position: relative; height: 420px; border-radius: 20px; overflow: hidden;
+  background: var(--bg2);
+}
+.card-item .img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, var(--bg), transparent);
+  opacity: .5;
+}
+.card-item .img img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: blur(1px);
+}
+.card-item .img .tags {
+  position: absolute; top: 24px; right: 24px; z-index: 3; display: flex; gap: 6px; flex-wrap: wrap;
+}
+.card-item .img .tags a {
+  font-size: 11px; padding: 5px 12px;
+  border: 1px solid rgba(255,255,255,.15); border-radius: 30px;
+  backdrop-filter: blur(10px);
+}
+.card-item h5 {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-display); font-size: clamp(40px, 8vw, 120px); letter-spacing: normal;
+  color: rgba(255,255,255,.9);
+}
+
+/* ===== SEC HEAD ===== */
+.sec-head { margin-bottom: 60px; }
+.sec-head .fz-40 { font-size: clamp(24px,3vw,40px); }
+.sec-head .sub-head {
+  position: relative; padding-left: 22px; font-size: 16px; font-weight: 300; color: var(--gray);
+}
+.sec-head .sub-head::after {
+  content: ''; width: 7px; height: 7px; background: #fff;
+  border-radius: 50%; position: absolute; top: 8px; left: 0;
+}
+
+/* ===== ABOUT INTRO ===== */
+.intro-cst .text h5 { font-size: clamp(18px,2vw,26px); font-weight: 300; line-height: 1.5; color: rgba(255,255,255,.85); letter-spacing: -.3px; }
+.intro-cst .states .item {
+  position: relative; padding-left: 55px;
+}
+.intro-cst .states .item::before {
+  content: ''; position: absolute; top: 10px; left: 0; width: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.intro-cst .states .item::after {
+  content: ''; position: absolute; top: 10px; left: 0; bottom: 0;
+  border-left: 1px solid var(--border);
+}
+.intro-cst .states .item span { font-size: 14px; color: #888; }
+.intro-cst .states .item h2 {
+  font-family: var(--ff-display); font-size: clamp(60px,9vw,140px);
+  letter-spacing: normal; line-height: 1; margin-top: 30px;
+}
+.intro-cst .states .item .spn-botm { margin-left: 10px; font-size: 16px; color: var(--gray); }
+
+/* ===== SERVICES ===== */
+.services-cst .item {
+  padding: 30px 0; border-bottom: 1px solid rgba(0,0,0,.2);
+  display: flex; align-items: center; justify-content: space-between;
+  overflow: hidden; transition: all .3s; cursor: default;
+  position: relative;
+}
+.services-cst .item .numb h3 { font-size: 18px; color: var(--gray); min-width: 50px; }
+.services-cst .item .title { text-align: center; flex: 1; position: relative; }
+.services-cst .item .title h2 {
+  font-size: clamp(32px, 6vw, 90px); font-weight: 500; letter-spacing: -4px;
+  white-space: nowrap; transition: color .3s;
+}
+.services-cst .item:hover .title h2 { color: var(--lime); }
+.services-cst .item .title .list { opacity: 0; transition: opacity .3s; pointer-events: none; }
+.services-cst .item:hover .title .list { opacity: 1; }
+.services-cst .item .title .list span {
+  position: absolute; padding: 6px 14px;
+  background: var(--lime); border-radius: 30px; font-size: 13px; color: var(--bg);
+  opacity: 0; transition: opacity .4s;
+  white-space: nowrap;
+}
+.services-cst .item:hover .title .list span { opacity: 1; }
+.services-cst .item .title .list span:nth-child(1) { top: -14px; left: 15%; }
+.services-cst .item .title .list span:nth-child(2) { top: 50%; left: -10px; transform: translateY(-50%); transition-delay: .1s; }
+.services-cst .item .title .list span:nth-child(3) { bottom: -14px; right: 15%; transition-delay: .2s; }
+.services-cst .item .title .list span:nth-child(4) { top: 50%; right: -10px; transform: translateY(-50%); transition-delay: .3s; }
+.services-cst .item .icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.2); display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.services-cst .item .icon img { width: 26px; }
+.light-bg .services-cst .item { border-color: rgba(0,0,0,.1); }
+
+/* ===== TEAM ===== */
+.team-cst .thecontainer {
+  display: flex; width: 200vw; padding-top: 60px;
+}
+.team-cst .panel {
+  flex: 1; display: flex; justify-content: flex-end; align-items: center; padding: 0 20px;
+}
+.team-cst .panel:nth-child(even) .item { transform: translateY(-20px); }
+.team-cst .panel .item { width: 24vw; max-width: 320px; transform: translateY(20px); }
+.team-cst .panel .item .img img { filter: grayscale(1); transition: filter .4s; border-radius: 16px; }
+.team-cst .panel .item:hover .img img { filter: grayscale(0); }
+.team-cst .panel .item .cont { margin-top: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+.team-cst .panel .item .cont h3 { font-size: 22px; font-weight: 500; }
+.team-cst .panel .item .cont span { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); }
+
+/* ===== CLIENTS ===== */
+.clients-ds .item {
+  border: 1px solid var(--border); border-radius: 80px;
+  padding: 20px 40px; display: flex; align-items: center; justify-content: center;
+  height: 80px;
+}
+.clients-ds .item .img { max-width: 110px; max-height: 40px; margin: auto; }
+.clients-ds .item img { max-height: 36px; width: auto; margin: auto; filter: brightness(0) invert(1); opacity: .5; transition: opacity .3s; }
+.clients-ds .item:hover img { opacity: 1; }
+
+/* ===== FOOTER ===== */
+.footer-sa .call-action h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(60px, 18vw, 260px);
+  font-weight: 600; text-transform: uppercase; letter-spacing: normal;
+  line-height: 1; cursor: pointer; transition: color .3s;
+}
+.footer-sa .call-action h2 a:hover { color: var(--lime); }
+.footer-sa .logo { width: 120px; }
+.footer-sa .contact-info .item { margin-bottom: 40px; }
+.footer-sa .contact-info .item span { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); display: block; margin-bottom: 8px; }
+.footer-sa .contact-info .item p, .footer-sa .contact-info .item a { font-size: 14px; color: rgba(255,255,255,.8); line-height: 1.8; }
+.footer-sa .contact-info .item a:hover { color: var(--lime); }
+.social-icon { display: flex; gap: 10px; flex-wrap: wrap; }
+.social-icon a {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: rgba(255,255,255,.7); transition: all .3s;
+}
+.social-icon a:hover { border-color: #fff; color: #fff; }
+.footer-sa .sub-footer { padding-top: 40px; margin-top: 40px; border-top: 1px solid var(--border); }
+.footer-sa .sub-footer .copy p { font-size: 13px; color: var(--gray); }
+.footer-sa .sub-footer .copy p a { color: #fff; }
+.footer-sa .sub-footer .links { display: flex; gap: 24px; }
+.footer-sa .sub-footer .links a { font-size: 13px; color: var(--gray); }
+.footer-sa .sub-footer .links a:hover { color: #fff; }
+
+/* ===== MARQUEE ===== */
+.marquee-wrap { overflow: hidden; border-top: 1px solid var(--border); padding: 20px 0; }
+.marquee-track { display: flex; width: max-content; animation: marqueeScroll 20s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
+.marquee-item { padding: 0 60px; white-space: nowrap; }
+.marquee-item h4 { font-size: 9vw; font-weight: 700; text-transform: uppercase; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.25); }
+@keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ===== UTILS ===== */
+.ml-auto { margin-left: auto; }
+.mt-80 { margin-top: 80px; }
+.mb-80 { margin-bottom: 80px; }
+.mb-30 { margin-bottom: 30px; }
+.mt-30 { margin-top: 30px; }
+.mt-40 { margin-top: 40px; }
+.pb-30 { padding-bottom: 30px; }
+.pb-80 { padding-bottom: 80px; }
+.pt-50 { padding-top: 50px; }
+.pt-0 { padding-top: 0 !important; }
+.fz-40 { font-size: clamp(22px,3vw,40px) !important; }
+.ls2 { letter-spacing: -2px; }
+.text-u { text-transform: uppercase; }
+.d-flex { display: flex; }
+.align-items-center { align-items: center; }
+.align-items-end { align-items: flex-end; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-end { justify-content: flex-end; }
+.justify-content-center { justify-content: center; }
+.valign { display: flex; align-items: center; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .team-cst .thecontainer { width: 100%; flex-direction: column; }
+  .team-cst .panel { width: 100%; justify-content: center; }
+  .team-cst .panel .item { width: 100%; max-width: 100%; transform: none !important; }
+  .hero-img-right { display: none; }
+  .intro-cst .states .item h2 { font-size: clamp(50px, 12vw, 100px); }
+  .services-cst .item .title h2 { font-size: clamp(24px, 5vw, 55px); }
+  .sec-head .d-flex { flex-wrap: wrap; gap: 16px; }
+  .sec-head .ml-auto { margin-left: 0; }
+  .num-col { border-right: none; border-top: 1px solid var(--border); }
+  .num-col:first-child { border-top: none; }
+}
+@media (max-width: 768px) {
+  .section-padding { padding: 60px 0; }
+  h1 { font-size: 36px; letter-spacing: -1px; }
+  h2 { font-size: 28px; letter-spacing: -1px; }
+  h3 { font-size: 24px; }
+  .hero-caption h1 { font-size: clamp(48px, 14vw, 80px) !important; }
+  .hero-caption h2 { font-size: 15px; }
+  .footer-sa .call-action h2 { font-size: clamp(40px, 12vw, 80px); }
+  .services-cst .item .title .list { display: none; }
+  .clients-ds .item { padding: 15px 20px; }
+}
+
+/* ===== WOW FADE ===== */
+.wow { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+.wow.animated { opacity: 1; transform: translateY(0); }
+.nav-dropdown{position:relative}.nav-dropdown>a{display:flex;align-items:center;gap:5px}.nav-dropdown>a::after{content:"";width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid rgba(255,255,255,.5);transition:transform .2s}.nav-dropdown:hover>a::after{transform:rotate(180deg);border-top-color:#fff}.dropdown-menu-custom{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:#13141a;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:10px;min-width:220px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s;transform:translateX(-50%) translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,.5);z-index:1000}.nav-dropdown:hover .dropdown-menu-custom{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}.dropdown-menu-custom a{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;font-size:13px;color:rgba(255,255,255,.7);transition:background .2s,color .2s;white-space:nowrap;background:transparent!important}.dropdown-menu-custom a:hover{background:rgba(255,255,255,.07)!important;color:#fff}.dropdown-menu-custom a i{color:var(--lime);font-size:13px;width:16px;text-align:center}.has-submenu>a .sub-arrow{display:inline-block;margin-left:auto;font-size:9px;color:rgba(255,255,255,.4);transition:color .2s}
+.has-submenu:hover>a .sub-arrow{color:var(--lime)}
+.dropdown-menu-custom .dd-divider{height:1px;background:rgba(255,255,255,.07);margin:6px 4px}.city-hero{padding-top:160px;padding-bottom:70px;position:relative;overflow:hidden}.city-hero::before{content:"";position:absolute;top:-150px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(208,255,113,.06),transparent 70%);pointer-events:none}
+.breadcrumb-bar{display:flex;align-items:center;gap:8px;margin-bottom:28px;flex-wrap:wrap}.breadcrumb-bar a,.breadcrumb-bar span{font-size:12px;color:var(--gray)}.breadcrumb-bar a:hover{color:#fff}.breadcrumb-bar .sep{color:rgba(255,255,255,.2)}.breadcrumb-bar .current{color:var(--lime)}
+.stat-box{text-align:center;padding:28px 20px;border:1px solid rgba(255,255,255,.07);border-radius:16px;background:rgba(255,255,255,.02)}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.08)}.faq-q{font-size:16px;padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;transition:color .2s}.faq-q:hover{color:var(--lime)}.faq-icon{width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;transition:all .3s}.faq-item.faq-open .faq-q{color:var(--lime)}.faq-item.faq-open .faq-icon{background:var(--lime);border-color:var(--lime);transform:rotate(45deg);color:#1d1d1d}.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}.faq-a p{font-size:14px;line-height:1.8;padding-bottom:20px;color:rgba(255,255,255,.7)}
+.other-cities{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08)}.other-city-link{display:flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid rgba(255,255,255,.1);border-radius:30px;font-size:12px;color:rgba(255,255,255,.6);transition:all .2s;text-decoration:none}.other-city-link:hover{border-color:rgba(208,255,113,.4);color:#fff;background:rgba(208,255,113,.04)}
+.marquee-wrap{overflow:hidden;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:16px 0}.marquee-track{display:flex;width:max-content;animation:marqueeScroll 22s linear infinite}.marquee-item{padding:0 40px;white-space:nowrap}.marquee-item span{font-family:var(--ff-display);font-size:7vw;font-weight:700;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.12)}
+@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:991px){.nav-links{display:none}.hamburger{display:flex}}
+@media(max-width:768px){.section-padding{padding:60px 0}.city-hero{padding-top:120px;padding-bottom:40px}h1{font-size:36px;letter-spacing:-1px}}
+.has-submenu{position:relative}
+.has-submenu>a{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;font-size:13px;color:rgba(255,255,255,.7);white-space:nowrap;text-decoration:none;background:transparent;width:100%;box-sizing:border-box}
+.has-submenu:hover>a{background:rgba(255,255,255,.07)!important;color:#fff}
+.has-submenu>.submenu{display:none;position:absolute;left:calc(100% + 6px);top:-10px;background:#13141a;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:10px;min-width:190px;box-shadow:0 20px 60px rgba(0,0,0,.5);z-index:1002}
+.has-submenu:hover>.submenu{display:block}
+.submenu a{display:flex;align-items:center;gap:10px;padding:7px 12px;border-radius:10px;font-size:12px;color:rgba(255,255,255,.65);white-space:nowrap;text-decoration:none;background:transparent!important;transition:background .2s,color .2s}
+.submenu a:hover{background:rgba(255,255,255,.07)!important;color:#fff}
+.submenu .sub-divider{height:1px;background:rgba(255,255,255,.07);margin:5px 4px}
+</style>
+</head>
+<body>
+<div class="loader-wrap" id="loader"><div class="loader-inner"><div class="loader-dot"></div><div class="loader-dot"></div><div class="loader-dot"></div></div></div><div class="progress-wrap" id="progressWrap"><svg width="46" height="46" viewBox="-1 -1 48 48"><path d="M23,1 a22,22 0 0,1 0,44 a22,22 0 0,1 0,-44" id="progressPath"/></svg></div><div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="services.html">Services</a><a href="industries.html">Industries</a>
+  <a href="locations.html" class="active">Locations</a>
+  <a href="pricing.html">Pricing</a><a href="contact.html">Contact</a>
+  <a href="https://blog.internetmarketingmedia.net/" target="_blank">Blog</a>
+  <div class="mobile-menu-info mt-40"><p>hello@internetmarketingmedia.net</p><p>+381 61 601 4693</p></div>
+</div><nav class="navbar">
+  <div class="navbar-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="assets/imgs/logo-imm.png" alt="Internet Marketing Media" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'color:#d0ff71;font-family:Six Caps,sans-serif;font-size:22px;letter-spacing:1px;padding:4px 8px\'>IMM</span>'">
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+<div class="nav-dropdown">
+      <a href="services.html">Services</a>
+      <div class="dropdown-menu-custom">
+      <a href="technical-seo.html"><i class="fa-solid fa-microscope"></i>Technical SEO</a>
+      <a href="on-page-seo.html"><i class="fa-solid fa-file-lines"></i>On-Page SEO</a>
+      <a href="link-building.html"><i class="fa-solid fa-link"></i>Link Building</a>
+      <a href="local-seo.html"><i class="fa-solid fa-map-location-dot"></i>Local SEO</a>
+      <a href="ecommerce-seo.html"><i class="fa-solid fa-cart-shopping"></i>E-Commerce SEO</a>
+      <a href="ai-seo-aeo.html"><i class="fa-solid fa-robot"></i>AI SEO &amp; AEO</a>
+      <a href="youtube-seo.html"><i class="fa-brands fa-youtube"></i>YouTube SEO</a>
+      <div class="dd-divider"></div>
+      <a href="services.html"><i class="fa-solid fa-grid-2"></i>All Services</a>
+      </div>
+    </div>
+      <div class="nav-dropdown">
+      <a href="industries.html">Industries</a>
+      <div class="dropdown-menu-custom">
+      <a href="seo-for-law-firms.html"><i class="fa-solid fa-gavel"></i>Law Firms</a>
+      <a href="seo-for-saas.html"><i class="fa-solid fa-microchip"></i>SaaS &amp; Tech</a>
+      <a href="seo-for-healthcare.html"><i class="fa-solid fa-heart-pulse"></i>Healthcare</a>
+      <a href="seo-for-ecommerce.html"><i class="fa-solid fa-cart-shopping"></i>E-Commerce</a>
+      <a href="seo-for-home-services.html"><i class="fa-solid fa-wrench"></i>Home Services</a>
+      <a href="seo-for-real-estate.html"><i class="fa-solid fa-building"></i>Real Estate</a>
+      <a href="seo-for-education.html"><i class="fa-solid fa-graduation-cap"></i>Education</a>
+      <a href="seo-for-travel.html"><i class="fa-solid fa-plane"></i>Travel</a>
+      <a href="seo-for-restaurants.html"><i class="fa-solid fa-utensils"></i>Restaurants</a>
+      <a href="seo-for-fitness.html"><i class="fa-solid fa-dumbbell"></i>Fitness &amp; Wellness</a>
+      <a href="seo-for-local-business.html"><i class="fa-solid fa-store"></i>Local Business</a>
+      <a href="seo-for-finance.html"><i class="fa-solid fa-money-bill-trend-up"></i>Finance</a>
+      <div class="dd-divider"></div>
+      <a href="industries.html"><i class="fa-solid fa-grid-2"></i>All Industries</a>
+      </div>
+    </div>
+      <div class="nav-dropdown">
+        <a href="locations.html">Locations</a>
+        <div class="dropdown-menu-custom">
+      <div class="has-submenu">
+        <a href="united-states-seo.html"><i class="fa-solid fa-flag-usa" style="color:var(--lime);font-size:13px;width:16px;text-align:center"></i>United States<i class="fa-solid fa-chevron-right sub-arrow" style="margin-left:auto;font-size:9px"></i></a>
+        <div class="submenu">
+          <a href="seo-agency-new-york.html">New York</a>
+          <a href="seo-agency-los-angeles.html">Los Angeles</a>
+          <a href="seo-agency-chicago.html">Chicago</a>
+          <a href="seo-agency-houston.html">Houston</a>
+          <a href="seo-agency-miami.html">Miami</a>
+          <a href="seo-agency-dallas.html">Dallas</a>
+          <a href="seo-agency-atlanta.html">Atlanta</a>
+          <a href="seo-agency-san-francisco.html">San Francisco</a>
+          <a href="seo-agency-phoenix.html">Phoenix</a>
+          <a href="seo-agency-philadelphia.html">Philadelphia</a>
+          <a href="seo-agency-seattle.html">Seattle</a>
+          <a href="seo-agency-denver.html">Denver</a>
+          <a href="seo-agency-boston.html">Boston</a>
+          <a href="seo-agency-austin.html">Austin</a>
+          <a href="seo-agency-columbus.html">Columbus</a>
+          <div class="sub-divider"></div>
+          <a href="united-states-seo.html" style="color:var(--lime)">All US cities <i class="fa-solid fa-arrow-up-right" style="font-size:9px"></i></a>
+        </div>
+      </div>
+      <a href="united-kingdom-seo.html"><i class="fa-solid fa-location-dot"></i>United Kingdom</a>
+      <a href="germany-seo.html"><i class="fa-solid fa-location-dot"></i>Germany</a>
+      <a href="norway-seo.html"><i class="fa-solid fa-location-dot"></i>Norway</a>
+      <a href="sweden-seo.html"><i class="fa-solid fa-location-dot"></i>Sweden</a>
+      <a href="netherlands-seo.html"><i class="fa-solid fa-location-dot"></i>Netherlands</a>
+      <a href="australia-seo.html"><i class="fa-solid fa-location-dot"></i>Australia</a>
+      <div class="dd-divider"></div>
+      <a href="locations.html"><i class="fa-solid fa-globe"></i>All Locations</a>
+        </div>
+      </div>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://blog.internetmarketingmedia.net/" target="_blank">Blog</a>
+    </div>
+    <div class="d-flex align-items-center" style="gap:10px">
+      <a href="contact.html" style="padding:8px 16px;border:1px solid rgba(208,255,113,.45);color:var(--lime);border-radius:30px;font-size:12px;font-weight:500;white-space:nowrap;display:none;align-items:center;gap:6px;transition:all .3s" class="d-none d-lg-flex" onmouseover="this.style.background='rgba(208,255,113,.1)'" onmouseout="this.style.background='transparent'"><i class="fa-solid fa-magnifying-glass" style="font-size:10px"></i> Free Audit</a>
+      <a href="contact.html" class="nav-cta">Start a Project <i class="fa-solid fa-arrow-up-right" style="font-size:11px"></i></a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="city-hero">
+  <div class="container">
+    <div class="breadcrumb-bar">
+      <a href="index.html">Home</a><span class="sep">/</span>
+      <a href="locations.html">Locations</a><span class="sep">/</span>
+      <a href="united-states-seo.html">United States</a><span class="sep">/</span>
+      <span class="current">Philadelphia</span>
+    </div>
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-7 wow">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(208,255,113,.08);border:1px solid rgba(208,255,113,.2);border-radius:30px;padding:6px 16px;margin-bottom:24px">
+          <span style="font-size:16px">&#127482;&#127480;</span>
+          <span style="font-size:12px;color:var(--lime);font-weight:500;text-transform:uppercase;letter-spacing:1px">Philadelphia, PHL</span>
+        </div>
+        <h1 style="font-size:clamp(42px,5.5vw,72px);letter-spacing:-3px;line-height:1.05;margin-bottom:24px">Philadelphia<br>SEO Agency</h1>
+        <p style="font-size:clamp(15px,1.6vw,18px);color:rgba(255,255,255,.75);line-height:1.75;max-width:520px;margin-bottom:36px">Philadelphia is the anchor of the Northeast Corridor and a major hub for healthcare, education, and professional services. Home to some of the world's leading hospital systems, major universities, and a competitive legal market - Philly's search landscape rewards genuine authority and precision targeting.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="contact.html" style="display:inline-flex;align-items:center;gap:10px;padding:13px 28px;background:var(--lime);color:#1d1d1d;border-radius:30px;font-size:14px;font-weight:600;transition:background .3s" onmouseover="this.style.background='#fff'" onmouseout="this.style.background='var(--lime)'">Get a Free PHL SEO Audit <i class="fa-solid fa-arrow-up-right" style="font-size:11px"></i></a>
+          <a href="pricing.html" style="display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:30px;border:1px solid rgba(255,255,255,.15);font-size:14px;color:rgba(255,255,255,.7);transition:all .3s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.4)'" onmouseout="this.style.color='rgba(255,255,255,.7)';this.style.borderColor='rgba(255,255,255,.15)'">View pricing <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-5 wow" data-delay="120">
+        <div style="background:var(--bg2);border-radius:20px;padding:32px;border:1px solid rgba(255,255,255,.06)">
+          <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:20px">Philadelphia SEO at a glance</p>
+          <div style="display:flex;flex-direction:column;gap:0">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)">
+              <p style="font-size:13px;color:rgba(255,255,255,.65);margin:0">Market competitiveness</p>
+              <div style="display:flex;gap:4px"><div style="width:8px;height:8px;border-radius:50%;background:var(--lime)"></div><div style="width:8px;height:8px;border-radius:50%;background:var(--lime)"></div><div style="width:8px;height:8px;border-radius:50%;background:var(--lime)"></div><div style="width:8px;height:8px;border-radius:50%;background:var(--lime)"></div><div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15)"></div></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)">
+              <p style="font-size:13px;color:rgba(255,255,255,.65);margin:0">Population</p>
+              <span style="font-size:14px;color:#fff;font-weight:600">1.6M</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)">
+              <p style="font-size:13px;color:rgba(255,255,255,.65);margin:0">Top industries</p>
+              <span style="font-size:13px;color:rgba(255,255,255,.8)">Healthcare, Legal, Education</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0">
+              <p style="font-size:13px;color:rgba(255,255,255,.65);margin:0">Starting from</p>
+              <span style="font-size:14px;color:var(--lime);font-weight:700">$799/mo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap"><div class="marquee-track"><div class="marquee-item"><span>Philadelphia</span></div><div class="marquee-item"><span>Center City</span></div><div class="marquee-item"><span>Fishtown</span></div><div class="marquee-item"><span>University City</span></div><div class="marquee-item"><span>Main Line</span></div><div class="marquee-item"><span>Old City</span></div><div class="marquee-item"><span>Philadelphia</span></div><div class="marquee-item"><span>Center City</span></div><div class="marquee-item"><span>Fishtown</span></div><div class="marquee-item"><span>University City</span></div><div class="marquee-item"><span>Main Line</span></div><div class="marquee-item"><span>Old City</span></div></div></div>
+
+<section class="section-padding">
+  <div class="container">
+    <div class="row g-3 mb-60 wow">
+      <div class="col-6 col-md-3">
+        <div class="stat-box">
+          <div style="font-family:var(--ff-display);font-size:44px;letter-spacing:normal;color:var(--lime);line-height:1;margin-bottom:8px">1.6M</div>
+          <p style="font-size:13px;color:var(--gray);line-height:1.5;margin:0">Philadelphia residents - 6th largest US city</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-box">
+          <div style="font-family:var(--ff-display);font-size:44px;letter-spacing:normal;color:var(--lime);line-height:1;margin-bottom:8px">6th</div>
+          <p style="font-size:13px;color:var(--gray);line-height:1.5;margin:0">Largest US metro area by population</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-box">
+          <div style="font-family:var(--ff-display);font-size:44px;letter-spacing:normal;color:var(--lime);line-height:1;margin-bottom:8px">#1</div>
+          <p style="font-size:13px;color:var(--gray);line-height:1.5;margin:0">Largest student population per capita of any major US city</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-box">
+          <div style="font-family:var(--ff-display);font-size:44px;letter-spacing:normal;color:var(--lime);line-height:1;margin-bottom:8px">$130+</div>
+          <p style="font-size:13px;color:var(--gray);line-height:1.5;margin:0">Average CPC for top Philadelphia medical malpractice keywords</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-head mb-50 wow">
+      <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:8px">Philadelphia industries</p>
+      <h2 style="font-size:clamp(26px,3.5vw,48px);letter-spacing:-2px;margin-bottom:16px">Industries we rank in Philadelphia</h2>
+      <p style="font-size:15px;color:rgba(255,255,255,.65);max-width:540px;line-height:1.75">The dominant industries driving search in the Philadelphia market - and where we have the deepest local expertise.</p>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-6 col-lg-4 wow" data-delay="0">
+        <a href="seo-for-healthcare.html" style="display:block;text-decoration:none;padding:24px;border:1px solid rgba(255,255,255,.08);border-radius:16px;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(208,255,113,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-heart-pulse" style="color:var(--lime);font-size:14px"></i></div>
+            <p style="font-size:14px;color:#fff;font-weight:600;margin:0">Healthcare</p>
+          </div>
+          <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;margin:0">World-class hospital systems and specialist practices competing for patient search traffic in a YMYL-heavy market.</p>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-4 wow" data-delay="60">
+        <a href="seo-for-law-firms.html" style="display:block;text-decoration:none;padding:24px;border:1px solid rgba(255,255,255,.08);border-radius:16px;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(208,255,113,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-gavel" style="color:var(--lime);font-size:14px"></i></div>
+            <p style="font-size:14px;color:#fff;font-weight:600;margin:0">Law Firms</p>
+          </div>
+          <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;margin:0">Personal injury, medical malpractice, and family law with some of the highest legal CPCs on the East Coast.</p>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-4 wow" data-delay="120">
+        <a href="seo-for-education.html" style="display:block;text-decoration:none;padding:24px;border:1px solid rgba(255,255,255,.08);border-radius:16px;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(208,255,113,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-graduation-cap" style="color:var(--lime);font-size:14px"></i></div>
+            <p style="font-size:14px;color:#fff;font-weight:600;margin:0">Education</p>
+          </div>
+          <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;margin:0">Major universities and private schools with enrollment-driven SEO in a highly educated market.</p>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-4 wow" data-delay="180">
+        <a href="seo-for-real-estate.html" style="display:block;text-decoration:none;padding:24px;border:1px solid rgba(255,255,255,.08);border-radius:16px;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(208,255,113,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-building" style="color:var(--lime);font-size:14px"></i></div>
+            <p style="font-size:14px;color:#fff;font-weight:600;margin:0">Real Estate</p>
+          </div>
+          <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;margin:0">Center City condos, rowhouse neighborhoods, and Main Line luxury residential with distinct search patterns per area.</p>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-4 wow" data-delay="240">
+        <a href="seo-for-finance.html" style="display:block;text-decoration:none;padding:24px;border:1px solid rgba(255,255,255,.08);border-radius:16px;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(208,255,113,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-money-bill-trend-up" style="color:var(--lime);font-size:14px"></i></div>
+            <p style="font-size:14px;color:#fff;font-weight:600;margin:0">Finance</p>
+          </div>
+          <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;margin:0">A major financial services market with investment firms, insurance, and fintech competing for professional clients.</p>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-4 wow" data-delay="300">
+        <a href="seo-for-restaurants.html" style="display:block;text-decoration:none;padding:24px;border:1px solid rgba(255,255,255,.08);border-radius:16px;height:100%;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.03)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(208,255,113,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-utensils" style="color:var(--lime);font-size:14px"></i></div>
+            <p style="font-size:14px;color:#fff;font-weight:600;margin:0">Restaurants</p>
+          </div>
+          <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;margin:0">A passionate food city with strong local search demand and a growing national food media profile.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid px-3 px-md-4" style="padding-bottom:0">
+  <div class="sub-bg radius-30 section-padding">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6 wow">
+          <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:16px">Ranking in Philadelphia</p>
+          <h2 style="font-size:clamp(24px,3vw,40px);letter-spacing:-1.5px;margin-bottom:20px">A Northeast powerhouse with world-class healthcare and legal search markets.</h2>
+          <p style="font-size:15px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:16px">Philadelphia is underrated as a search market. The concentration of major hospital systems (Penn Medicine, Jefferson Health, Temple), top universities (Penn, Drexel, Temple), and a dense professional services ecosystem creates high-value search demand that exceeds what many agencies realize.</p>
+          <p style="font-size:15px;color:rgba(255,255,255,.7);line-height:1.8">We build Philadelphia SEO around the specific dynamics of each district - Center City, South Philly, Fishtown, the Main Line suburbs - and the verticals where the highest-value searches occur: healthcare, legal, education, and real estate.</p>
+        </div>
+        <div class="col-lg-5 offset-lg-1 wow" data-delay="120">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="padding:20px 22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px">
+              <p style="font-size:13px;color:#fff;font-weight:600;margin-bottom:6px">Center City</p>
+              <p style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.6;margin:0">Law firms, finance, corporate headquarters, and professional services with the highest commercial search density.</p>
+            </div>
+            <div style="padding:20px 22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px">
+              <p style="font-size:13px;color:#fff;font-weight:600;margin-bottom:6px">University City</p>
+              <p style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.6;margin:0">Healthcare and education - Penn Medicine, CHOP, Drexel and Penn create massive YMYL search demand.</p>
+            </div>
+            <div style="padding:20px 22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px">
+              <p style="font-size:13px;color:#fff;font-weight:600;margin-bottom:6px">Main Line Suburbs</p>
+              <p style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.6;margin:0">High-income residential market with strong real estate, legal, healthcare, and home services search volume.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" style="padding-top:80px">
+  <div class="container">
+    <div class="sec-head mb-60 wow">
+      <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:8px">How we work in Philadelphia</p>
+      <h2 style="font-size:clamp(26px,3.5vw,48px);letter-spacing:-2px;margin-bottom:16px">Our SEO process</h2>
+      <p style="font-size:15px;color:rgba(255,255,255,.65);max-width:560px;line-height:1.75">Every Philadelphia campaign starts with a deep audit of your current position and your top competitors - then moves into execution built around the specific dynamics of the Philadelphia market.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 wow"><div style="padding:32px 24px;border:1px solid rgba(255,255,255,.08);border-radius:20px;height:100%;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><div style="font-family:var(--ff-display);font-size:52px;letter-spacing:normal;color:var(--lime);line-height:1;margin-bottom:20px">01</div><h4 style="font-size:16px;letter-spacing:-.3px;margin-bottom:10px">Competitor audit</h4><p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;margin:0">We map your top 5 local competitors in Philadelphia - what they rank for, their backlink profile, their content gaps, and where you can take rankings from them first.</p></div></div>
+      <div class="col-md-6 col-lg-3 wow" data-delay="80"><div style="padding:32px 24px;border:1px solid rgba(255,255,255,.08);border-radius:20px;height:100%;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><div style="font-family:var(--ff-display);font-size:52px;letter-spacing:normal;color:var(--lime);line-height:1;margin-bottom:20px">02</div><h4 style="font-size:16px;letter-spacing:-.3px;margin-bottom:10px">Local targeting</h4><p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;margin:0">Geo-targeted content and local signals built for Philadelphia and surrounding areas - not a generic US page. Every target neighborhood or district gets dedicated optimization.</p></div></div>
+      <div class="col-md-6 col-lg-3 wow" data-delay="160"><div style="padding:32px 24px;border:1px solid rgba(255,255,255,.08);border-radius:20px;height:100%;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><div style="font-family:var(--ff-display);font-size:52px;letter-spacing:normal;color:var(--lime);line-height:1;margin-bottom:20px">03</div><h4 style="font-size:16px;letter-spacing:-.3px;margin-bottom:10px">Authority build</h4><p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;margin:0">Editorial link building and content that earns rankings through genuine quality - not directory spam. We build authority at the level Philadelphia's competitive market requires.</p></div></div>
+      <div class="col-md-6 col-lg-3 wow" data-delay="240"><div style="padding:32px 24px;border:1px solid rgba(255,255,255,.08);border-radius:20px;height:100%;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><div style="font-family:var(--ff-display);font-size:52px;letter-spacing:normal;color:var(--lime);line-height:1;margin-bottom:20px">04</div><h4 style="font-size:16px;letter-spacing:-.3px;margin-bottom:10px">Daily updates &amp; reporting</h4><p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;margin:0">Every change logged daily. Monthly GSC and GA4 reports showing which Philadelphia keywords moved, which pages improved, and what revenue impact the SEO investment is producing.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" style="padding-top:0">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="sec-head mb-40 wow">
+          <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:8px">What we do</p>
+          <h2 style="font-size:clamp(24px,3vw,40px);letter-spacing:-2px;margin-bottom:16px">Our SEO Services</h2>
+          <p style="font-size:15px;color:rgba(255,255,255,.65);max-width:540px;line-height:1.75;margin-bottom:0">Full-service SEO for Philadelphia businesses - from technical audits and content strategy to link building and local map pack optimization.</p>
+        </div>
+        <div class="row g-3 mb-48 wow">
+          <div class="col-6 col-md-4">
+            <a href="technical-seo.html" style="display:flex;align-items:center;gap:12px;padding:18px 20px;border:1px solid rgba(255,255,255,.08);border-radius:14px;text-decoration:none;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-microscope" style="color:var(--lime);font-size:14px"></i></div>
+              <div><p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:3px">Technical SEO</p><p style="font-size:11px;color:var(--gray);margin:0">Site health &amp; crawlability</p></div>
+            </a>
+          </div>
+          <div class="col-6 col-md-4">
+            <a href="on-page-seo.html" style="display:flex;align-items:center;gap:12px;padding:18px 20px;border:1px solid rgba(255,255,255,.08);border-radius:14px;text-decoration:none;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-file-lines" style="color:var(--lime);font-size:14px"></i></div>
+              <div><p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:3px">On-Page SEO</p><p style="font-size:11px;color:var(--gray);margin:0">Keywords &amp; content optimization</p></div>
+            </a>
+          </div>
+          <div class="col-6 col-md-4">
+            <a href="link-building.html" style="display:flex;align-items:center;gap:12px;padding:18px 20px;border:1px solid rgba(255,255,255,.08);border-radius:14px;text-decoration:none;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-link" style="color:var(--lime);font-size:14px"></i></div>
+              <div><p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:3px">Link Building</p><p style="font-size:11px;color:var(--gray);margin:0">Authority &amp; editorial outreach</p></div>
+            </a>
+          </div>
+          <div class="col-6 col-md-4">
+            <a href="local-seo.html" style="display:flex;align-items:center;gap:12px;padding:18px 20px;border:1px solid rgba(255,255,255,.08);border-radius:14px;text-decoration:none;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-map-location-dot" style="color:var(--lime);font-size:14px"></i></div>
+              <div><p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:3px">Local SEO</p><p style="font-size:11px;color:var(--gray);margin:0">Map pack &amp; local targeting</p></div>
+            </a>
+          </div>
+          <div class="col-6 col-md-4">
+            <a href="ecommerce-seo.html" style="display:flex;align-items:center;gap:12px;padding:18px 20px;border:1px solid rgba(255,255,255,.08);border-radius:14px;text-decoration:none;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-cart-shopping" style="color:var(--lime);font-size:14px"></i></div>
+              <div><p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:3px">E-Commerce SEO</p><p style="font-size:11px;color:var(--gray);margin:0">Product &amp; category rankings</p></div>
+            </a>
+          </div>
+          <div class="col-6 col-md-4">
+            <a href="ai-seo-aeo.html" style="display:flex;align-items:center;gap:12px;padding:18px 20px;border:1px solid rgba(255,255,255,.08);border-radius:14px;text-decoration:none;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-robot" style="color:var(--lime);font-size:14px"></i></div>
+              <div><p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:3px">AI SEO &amp; AEO</p><p style="font-size:11px;color:var(--gray);margin:0">AI overviews &amp; answer engines</p></div>
+            </a>
+          </div>
+          <div class="col-6 col-md-4">
+            <a href="youtube-seo.html" style="display:flex;align-items:center;gap:12px;padding:18px 20px;border:1px solid rgba(255,255,255,.08);border-radius:14px;text-decoration:none;transition:border-color .3s,background .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.background='rgba(208,255,113,.04)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='transparent'">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(208,255,113,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-brands fa-youtube" style="color:var(--lime);font-size:14px"></i></div>
+              <div><p style="font-size:13px;color:#fff;font-weight:500;margin-bottom:3px">YouTube SEO</p><p style="font-size:11px;color:var(--gray);margin:0">Video rankings &amp; visibility</p></div>
+            </a>
+          </div>
+          <div class="col-6 col-md-4">
+            <a href="services.html" style="display:flex;align-items:center;gap:12px;padding:18px 20px;border:1px dashed rgba(255,255,255,.12);border-radius:14px;text-decoration:none;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.12)'">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fa-solid fa-grid-2" style="color:var(--gray);font-size:14px"></i></div>
+              <div><p style="font-size:13px;color:var(--gray);font-weight:500;margin-bottom:3px">All services</p><p style="font-size:11px;color:rgba(255,255,255,.3);margin:0">View full service list</p></div>
+            </a>
+          </div>
+        </div>
+
+        <div class="sec-head mb-40 wow" style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.08)">
+          <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:8px">Common Questions</p>
+          <h2 style="font-size:clamp(22px,2.5vw,36px);letter-spacing:-1.5px">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-item wow"><div class="faq-q">How competitive is SEO in Philadelphia?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a"><p>Highly competitive in healthcare, legal, and education. The concentration of major hospital systems and universities means YMYL content competition is intense. Outside these verticals, Philadelphia is a strong ROI market.</p></div></div><div class="faq-item wow" data-delay="60"><div class="faq-q">Do you cover Philadelphia suburbs like the Main Line?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a"><p>Yes. Main Line communities (Ardmore, Haverford, Wayne, Bryn Mawr), South Jersey (Cherry Hill, Voorhees), and Delaware County are all part of our Philly metro targeting.</p></div></div><div class="faq-item wow" data-delay="120"><div class="faq-q">What industries are strongest for SEO in Philadelphia?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a"><p>Healthcare, legal, and education carry the highest search value. Philadelphia's strong restaurant culture also creates consistent local SEO opportunity.</p></div></div><div class="faq-item wow" data-delay="180"><div class="faq-q">How long does Philadelphia SEO take?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a"><p>4-6 months for neighborhood and suburb-specific terms. 8-12 months for competitive healthcare or legal terms.</p></div></div><div class="faq-item wow" data-delay="240"><div class="faq-q">Do you work with universities or medical schools?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a"><p>Yes. Educational institution SEO focuses on program page optimization, enrollment-driven content, and local academic authority building.</p></div></div><div class="faq-item wow" data-delay="300"><div class="faq-q">What does Philadelphia SEO cost?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a"><p>Packages start at $799/month. Competitive verticals like healthcare and legal typically require the Growth ($1,499) or Authority ($2,499) package.</p></div></div>
+        <div class="other-cities">
+      <p style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gray);width:100%;margin-bottom:8px">Other US cities</p>
+      <a href="seo-agency-new-york.html" class="other-city-link">New York</a><a href="seo-agency-los-angeles.html" class="other-city-link">Los Angeles</a><a href="seo-agency-chicago.html" class="other-city-link">Chicago</a><a href="seo-agency-houston.html" class="other-city-link">Houston</a><a href="seo-agency-miami.html" class="other-city-link">Miami</a><a href="seo-agency-dallas.html" class="other-city-link">Dallas</a><a href="seo-agency-atlanta.html" class="other-city-link">Atlanta</a><a href="seo-agency-san-francisco.html" class="other-city-link">San Francisco</a><a href="seo-agency-phoenix.html" class="other-city-link">Phoenix</a><a href="seo-agency-seattle.html" class="other-city-link">Seattle</a><a href="seo-agency-denver.html" class="other-city-link">Denver</a><a href="seo-agency-boston.html" class="other-city-link">Boston</a><a href="seo-agency-austin.html" class="other-city-link">Austin</a><a href="seo-agency-columbus.html" class="other-city-link">Columbus</a>
+      <a href="united-states-seo.html" class="other-city-link" style="border-color:rgba(208,255,113,.2);color:var(--lime)">All US cities <i class="fa-solid fa-arrow-up-right" style="font-size:9px"></i></a>
+    </div>
+      </div>
+      <div class="col-lg-4 wow" data-delay="100">
+        <div style="position:sticky;top:110px;border:1px solid rgba(208,255,113,.3);border-radius:20px;padding:36px 28px;background:rgba(208,255,113,.04)">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(208,255,113,.12);border:1px solid rgba(208,255,113,.2);border-radius:30px;padding:5px 14px;margin-bottom:20px">
+            <i class="fa-solid fa-magnifying-glass" style="font-size:11px;color:var(--lime)"></i>
+            <span style="font-size:11px;color:var(--lime);text-transform:uppercase;letter-spacing:1px;font-weight:600">Free - no strings</span>
+          </div>
+          <h3 style="font-size:22px;letter-spacing:-.5px;margin-bottom:14px">Free Philadelphia SEO Audit</h3>
+          <p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:20px">Share your URL and primary industry. We analyze your Philadelphia rankings and top competitors, then send a prioritized action report within 48 hours.</p>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:20px">
+            <div style="display:flex;gap:10px;align-items:center"><i class="fa-solid fa-check" style="color:var(--lime);font-size:11px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);margin:0">Philadelphia keyword gap analysis</p></div>
+            <div style="display:flex;gap:10px;align-items:center"><i class="fa-solid fa-check" style="color:var(--lime);font-size:11px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);margin:0">Top 3 local competitor review</p></div>
+            <div style="display:flex;gap:10px;align-items:center"><i class="fa-solid fa-check" style="color:var(--lime);font-size:11px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);margin:0">Technical SEO check</p></div>
+            <div style="display:flex;gap:10px;align-items:center"><i class="fa-solid fa-check" style="color:var(--lime);font-size:11px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);margin:0">E-E-A-T signal assessment</p></div>
+            <div style="display:flex;gap:10px;align-items:center"><i class="fa-solid fa-check" style="color:var(--lime);font-size:11px;flex-shrink:0"></i><p style="font-size:13px;color:rgba(255,255,255,.75);margin:0">Delivered within 48 hours</p></div>
+          </div>
+          <a href="contact.html" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 20px;border-radius:30px;background:var(--lime);color:#1d1d1d;font-size:14px;font-weight:700;transition:background .3s;text-decoration:none" onmouseover="this.style.background='#fff'" onmouseout="this.style.background='var(--lime)'">Request Free Audit <i class="fa-solid fa-arrow-up-right" style="font-size:11px"></i></a>
+          <p style="font-size:11px;color:var(--gray);text-align:center;margin-top:12px">No commitment. No credit card.</p>
+          <div style="border-top:1px solid rgba(255,255,255,.08);margin-top:24px;padding-top:20px">
+            <p style="font-size:12px;color:var(--gray);margin-bottom:10px">Our packages</p>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <a href="pricing.html" style="display:flex;justify-content:space-between;padding:10px 14px;border:1px solid rgba(255,255,255,.1);border-radius:10px;font-size:13px;color:rgba(255,255,255,.7);text-decoration:none;transition:all .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,.1)';this.style.color='rgba(255,255,255,.7)'">Starter <span style="color:var(--lime);font-weight:600">$799/mo</span></a>
+              <a href="pricing.html" style="display:flex;justify-content:space-between;padding:10px 14px;border:1px solid rgba(255,255,255,.1);border-radius:10px;font-size:13px;color:rgba(255,255,255,.7);text-decoration:none;transition:all .3s" onmouseover="this.style.borderColor='rgba(208,255,113,.3)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,.1)';this.style.color='rgba(255,255,255,.7)'">Growth <span style="color:var(--lime);font-weight:600">$1,499/mo</span></a>
+              <a href="pricing.html" style="display:flex;justify-content:space-between;padding:10px 14px;border:1px solid var(--lime);border-radius:10px;font-size:13px;color:#fff;text-decoration:none;background:rgba(208,255,113,.04)">Authority <span style="color:var(--lime);font-weight:600">$2,499/mo</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-sa pb-80">
+  <div class="container section-padding">
+
+    <!-- CTA -->
+    <div class="call-action text-center mb-80">
+      <h2 class="title-font"><a href="contact.html">Contact</a></h2>
+    </div>
+
+    <!-- MAIN FOOTER GRID -->
+    <div class="row g-5">
+
+      <!-- Brand col -->
+      <div class="col-lg-4 col-md-12">
+        <a href="index.html" class="logo d-block mb-24">
+          <img src="assets/imgs/logo-imm.png" alt="Internet Marketing Media" style="filter:invert(1);max-width:120px"
+            onerror="this.outerHTML='<span style=\'font-family:Six Caps,sans-serif;font-size:28px;color:#d0ff71;letter-spacing:1px\'>IMM</span>'">
+        </a>
+        <p style="font-size:14px;color:rgba(255,255,255,.55);line-height:1.8;max-width:280px;margin-bottom:28px">Full-service SEO for businesses in the US, UK, Europe, and Australia. English, German, Norwegian, Hungarian, Croatian, and Serbian.</p>
+        <div class="social-icon">
+          <a href="https://www.facebook.com/internetmarketingmedia.net" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Services col -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:20px">Services</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="technical-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Technical SEO</a>
+          <a href="on-page-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">On-Page SEO</a>
+          <a href="link-building.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Link Building</a>
+          <a href="local-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Local SEO</a>
+          <a href="ecommerce-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">E-Commerce SEO</a>
+          <a href="ai-seo-aeo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">AI SEO &amp; AEO</a>
+          <a href="youtube-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">YouTube SEO</a>
+        </div>
+      </div>
+
+      <!-- Industries col -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:20px">Industries</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="seo-for-law-firms.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Law Firms</a>
+          <a href="seo-for-saas.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">SaaS &amp; Tech</a>
+          <a href="seo-for-healthcare.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Healthcare</a>
+          <a href="seo-for-ecommerce.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">E-Commerce</a>
+          <a href="seo-for-real-estate.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Real Estate</a>
+          <a href="seo-for-finance.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Finance</a>
+          <a href="industries.html" style="font-size:13px;color:var(--lime);transition:color .2s">All industries &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Locations col -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:20px">Locations</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="seo-agency-new-york.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">New York</a>
+          <a href="seo-agency-los-angeles.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Los Angeles</a>
+          <a href="seo-agency-chicago.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Chicago</a>
+          <a href="seo-agency-miami.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Miami</a>
+          <a href="seo-agency-houston.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Houston</a>
+          <a href="seo-agency-san-francisco.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">San Francisco</a>
+          <a href="united-states-seo.html" style="font-size:13px;color:var(--lime);transition:color .2s">All US cities &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Contact col -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:20px">Contact</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px">
+          <a href="mailto:hello@internetmarketingmedia.net" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s;word-break:break-all" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">hello@internetmarketingmedia.net</a>
+          <a href="tel:+381616014693" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">+381 61 601 4693</a>
+        </div>
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:16px">Company</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="about.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">About</a>
+          <a href="pricing.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Pricing</a>
+          <a href="https://blog.internetmarketingmedia.net/" target="_blank" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Blog</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SUB FOOTER -->
+  <div class="container">
+    <div class="sub-footer">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="copy">
+            <p>&#169; 2026 <a href="index.html">Internet Marketing Media</a>. All rights reserved.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end">
+          <div class="links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="cookie-policy.html">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script>
+(function(){
+  "use strict";
+
+  /* --- LOADER --- */
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      document.getElementById('loader').classList.add('hidden');
+      /* Hero animate */
+      var h = document.getElementById('heroTitle');
+      var s = document.getElementById('heroSub');
+      if(h){ h.classList.add('visible'); }
+      if(s){ setTimeout(function(){ s.classList.add('visible'); }, 200); }
+      /* Trigger counters & wow */
+      initWow();
+      runCounters();
+    }, 600);
+  });
+
+  /* --- HAMBURGER --- */
+  var ham = document.getElementById('hamburger');
+  var mob = document.getElementById('mobileMenu');
+  if(ham){
+    ham.addEventListener('click', function(){
+      mob.classList.toggle('open');
+      var spans = ham.querySelectorAll('span');
+      if(mob.classList.contains('open')){
+        spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      }
+    });
+  }
+
+  /* --- PROGRESS SCROLL --- */
+  var pw = document.getElementById('progressWrap');
+  var pp = document.getElementById('progressPath');
+  window.addEventListener('scroll', function(){
+    var st = window.scrollY;
+    var dh = document.body.scrollHeight - window.innerHeight;
+    var pct = st / dh;
+    if(pw){
+      pw.classList.toggle('active-progress', st > 300);
+    }
+    if(pp){
+      var total = 307;
+      pp.style.strokeDashoffset = total - (total * pct);
+    }
+  });
+  if(pw){
+    pw.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  }
+
+  /* --- WOW (simple intersection observer) --- */
+  function initWow(){
+    var els = document.querySelectorAll('.wow');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('animated'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var delay = e.target.dataset.delay || 0;
+          setTimeout(function(){ e.target.classList.add('animated'); }, +delay);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    els.forEach(function(el){ io.observe(el); });
+  }
+
+  /* --- COUNTERS --- */
+  function runCounters(){
+    var els = document.querySelectorAll('.counter');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.textContent = (el.dataset.prefix||'') + el.dataset.target + (el.dataset.suffix||''); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          animCounter(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: .5 });
+    els.forEach(function(el){ io.observe(el); });
+  }
+  function animCounter(el){
+    var target = parseFloat(el.dataset.target);
+    var prefix = el.dataset.prefix || '';
+    var suffix = el.dataset.suffix || '';
+    var dec = (el.dataset.target.indexOf('.') > -1) ? 1 : 0;
+    var start = 0; var dur = 2000; var step = 16;
+    var inc = target / (dur / step);
+    var t = setInterval(function(){
+      start += inc;
+      if(start >= target){ start = target; clearInterval(t); }
+      el.textContent = prefix + start.toFixed(dec) + suffix;
+    }, step);
+  }
+
+  /* --- ACCORDION --- */
+  document.querySelectorAll('.accordion .accordion-item').forEach(function(item){
+    item.addEventListener('click', function(){
+      this.classList.toggle('active');
+    });
+  });
+
+})();
+</script>
+<script>document.querySelectorAll(".faq-q").forEach(function(q){q.addEventListener("click",function(){
+  var item=this.closest(".faq-item"),isOpen=item.classList.contains("faq-open");
+  document.querySelectorAll(".faq-item").forEach(function(i){i.classList.remove("faq-open");var a=i.querySelector(".faq-a"),ic=i.querySelector(".faq-icon"),qq=i.querySelector(".faq-q");if(a)a.style.maxHeight="0";if(ic){ic.style.background="transparent";ic.style.borderColor="rgba(255,255,255,.1)";ic.style.transform="rotate(0)";ic.style.color="inherit";}if(qq)qq.style.color="";});
+  if(!isOpen){item.classList.add("faq-open");var a=item.querySelector(".faq-a"),ic=item.querySelector(".faq-icon");if(a)a.style.maxHeight="400px";if(ic){ic.style.background="var(--lime)";ic.style.borderColor="var(--lime)";ic.style.transform="rotate(45deg)";ic.style.color="#1d1d1d";}this.style.color="var(--lime)";}
+});});</script>
+</body>
+</html>

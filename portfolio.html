@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>Projects & Case Studies — Internet Marketing Media</title>
+<meta name="description" content="Explore 55+ successful projects in SEO, web design, and digital marketing across 8 countries.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://internetmarketingmedia.net/portfolio.html">
+<meta property="og:title" content="Projects & Case Studies — Internet Marketing Media">
+<meta property="og:url" content="https://internetmarketingmedia.net/portfolio.html">
+<meta property="og:description" content="Explore 55+ successful projects in SEO, web design, and digital marketing across 8 countries.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&family=Six+Caps&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F1ZML705G2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F1ZML705G2');gtag('config','AW-972801614');</script>
+<style>
+
+/* ===== VARIABLES ===== */
+:root {
+  --bg: #0e0f11;
+  --bg2: #18191b;
+  --lime: #d0ff71;
+  --white: #fff;
+  --gray: #a4a4a4;
+  --border: rgba(255,255,255,0.1);
+  --ff-body: 'Inter', sans-serif;
+  --ff-display: 'Six Caps', sans-serif;
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--white);
+  background-color: var(--bg);
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; transition: color .3s; }
+img { max-width: 100%; display: block; }
+h1,h2,h3,h4,h5,h6 { font-weight: 400; margin: 0; line-height: 1.1; }
+h1 { font-size: clamp(42px,6vw,70px); letter-spacing: -3px; }
+h2 { font-size: clamp(30px,4vw,50px); letter-spacing: -2px; }
+h3 { font-size: clamp(26px,3vw,40px); letter-spacing: -1px; }
+h4 { font-size: 28px; }
+h5 { font-size: 22px; letter-spacing: -.5px; }
+h6 { font-size: 18px; }
+p { font-size: 15px; color: var(--gray); line-height: 1.7; }
+.section-padding { padding: 100px 0; }
+.sub-bg { background: var(--bg2); }
+.light-bg { background: #fff; color: #0e0f11; }
+.light-bg p { color: #555; }
+.sub-color { color: var(--gray); }
+.title-font { font-family: var(--ff-display); letter-spacing: normal; }
+.main-color { color: var(--lime); }
+.radius-30 { border-radius: 30px; }
+.bord-thin-bottom-light { border-bottom: 1px solid var(--border); }
+.bord-thin-top-light { border-top: 1px solid var(--border); }
+
+/* ===== LOADER ===== */
+.loader-wrap {
+  position: fixed; inset: 0; z-index: 99999;
+  background: var(--bg); display: flex; align-items: center; justify-content: center;
+  transition: opacity .6s .2s, visibility .6s .2s;
+}
+.loader-wrap.hidden { opacity: 0; visibility: hidden; }
+.loader-inner { display: flex; gap: 8px; }
+.loader-dot {
+  width: 10px; height: 10px; border-radius: 50%; background: var(--lime);
+  animation: ldot .8s infinite alternate;
+}
+.loader-dot:nth-child(2) { animation-delay: .2s; }
+.loader-dot:nth-child(3) { animation-delay: .4s; }
+@keyframes ldot { from { transform: translateY(0); opacity: .4; } to { transform: translateY(-15px); opacity: 1; } }
+
+/* ===== PROGRESS ===== */
+.progress-wrap {
+  position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+  width: 46px; height: 46px; cursor: pointer;
+  opacity: 0; visibility: hidden; transition: all .4s;
+}
+.progress-wrap.active-progress { opacity: 1; visibility: visible; }
+.progress-wrap svg { transform: rotate(-90deg); }
+.progress-wrap svg path {
+  fill: none; stroke: var(--lime); stroke-width: 4;
+  stroke-dasharray: 307; stroke-dashoffset: 307;
+  transition: stroke-dashoffset .3s;
+}
+.progress-wrap::after {
+  content: '\f077'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--white);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed; top: 20px; left: 0; width: 100%;
+  padding: 0 15px; z-index: 9999; transition: top .3s;
+}
+.navbar-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1400px; margin: 0 auto;
+  background: rgba(14,15,17,.7); backdrop-filter: blur(20px);
+  border: 1px solid var(--border); border-radius: 50px; padding: 8px 12px;
+}
+.nav-logo { width: 130px; padding: 4px 12px; border: 1px solid var(--border); border-radius: 30px; }
+.nav-logo img { width: 100%; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a {
+  padding: 6px 16px; border-radius: 30px; font-size: 13px; color: rgba(255,255,255,.7);
+  transition: all .2s; white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,.1); color: #fff; }
+.nav-cta {
+  padding: 8px 20px; background: #fff; color: #1d1d1d !important;
+  border-radius: 30px; font-size: 13px; font-weight: 500; white-space: nowrap;
+  display: flex; align-items: center; gap: 6px; transition: background .3s;
+}
+.nav-cta:hover { background: var(--lime) !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all .3s; }
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed; inset: 0; background: var(--bg); z-index: 9998;
+  transform: translateX(100%); transition: transform .4s cubic-bezier(.77,0,.175,1);
+  display: flex; flex-direction: column; padding: 100px 40px 40px;
+}
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a {
+  font-size: clamp(28px,6vw,42px); font-weight: 300; letter-spacing: -1px;
+  padding: 12px 0; border-bottom: 1px solid var(--border); color: #fff;
+  display: block; transition: color .2s;
+}
+.mobile-menu a:hover { color: var(--lime); }
+.mobile-menu-info { margin-top: auto; }
+.mobile-menu-info p { font-size: 13px; color: var(--gray); margin-bottom: 4px; }
+
+/* ===== BUTTONS ===== */
+.butn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 24px; border-radius: 30px; font-size: 14px; font-weight: 500;
+  cursor: pointer; transition: all .3s; border: none; background: transparent; color: inherit;
+}
+.butn-rounded { border: 1px solid var(--border); }
+.butn-rounded:hover { background: #fff; color: #1d1d1d; }
+.butn-dark { background: var(--bg2); border: 1px solid var(--border); }
+.butn-dark:hover { background: var(--lime); color: #1d1d1d; border-color: var(--lime); }
+.butn .icon { width: 16px; flex-shrink: 0; }
+.butn .icon img { width: 100%; filter: invert(1); }
+.butn:hover .icon img { filter: none; }
+.light-bg .butn-rounded { border-color: rgba(0,0,0,.2); color: #1d1d1d; }
+.light-bg .butn-rounded:hover { background: var(--lime); color: #1d1d1d; border-color: transparent; }
+.light-bg .butn .icon img { filter: none; }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden; background: var(--bg);
+}
+.hero-images {
+  position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr;
+}
+.hero-img {
+  height: 100%; overflow: hidden;
+}
+.hero-img img { width: 100%; height: 100%; object-fit: cover; }
+.hero-grad {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, var(--bg) 40%, transparent 100%);
+  z-index: 2;
+}
+.hero-caption {
+  position: relative; z-index: 3;
+  text-align: center; padding: 0 20px 60px;
+}
+.hero-caption h1 {
+  font-family: var(--ff-display);
+  font-size: clamp(60px, 14vw, 180px);
+  font-weight: 500; text-transform: uppercase; letter-spacing: normal; line-height: .95;
+  transform: scaleX(1.4); opacity: 0;
+  transition: transform 1.2s cubic-bezier(.16,1,.3,1), opacity 1s ease;
+}
+.hero-caption h1.visible { transform: scaleX(1); opacity: 1; }
+.hero-caption h2 {
+  font-size: clamp(14px, 2vw, 22px); font-weight: 300; letter-spacing: -.5px;
+  color: rgba(255,255,255,.7); margin-top: 20px;
+  opacity: 0; transform: translateY(20px);
+  transition: all .8s ease 1s;
+}
+.hero-caption h2.visible { opacity: 1; transform: translateY(0); }
+.hero-img-right { display: block; }
+
+/* ===== NUMBERS ===== */
+.numbers-cst { border-top: 1px solid var(--border); }
+.num-col {
+  padding: 60px 20px; text-align: center;
+  border-right: 1px solid var(--border);
+}
+.num-col:last-child { border-right: none; }
+.num-item h2 {
+  font-family: var(--ff-display); font-size: clamp(55px, 8vw, 110px);
+  letter-spacing: normal; color: #fff; margin-bottom: 12px;
+}
+.num-item p { font-size: 12px; color: #888; line-height: 1.5; }
+.num-item p span { display: block; color: #555; font-size: 11px; margin-top: 4px; }
+
+/* ===== SEARCH ADVANTAGE ===== */
+.analytics-head { text-align: center; padding: 0 15px; margin-bottom: 60px; }
+.analytics-head h2 { font-size: clamp(28px,4vw,56px); font-weight: 400; letter-spacing: -2px; margin-bottom: 16px; }
+.analytics-head h2 strong { font-weight: 700; color: var(--lime); }
+.analytics-head p { max-width: 660px; margin: 0 auto; font-size: 13px; color: #555; }
+
+/* Stacked cards */
+.cards-wrap { position: relative; }
+.card-item {
+  margin-bottom: 24px; border-radius: 20px; overflow: hidden;
+  transition: transform .4s;
+}
+.card-item:hover { transform: translateY(-4px); }
+.card-item .img {
+  position: relative; height: 420px; border-radius: 20px; overflow: hidden;
+  background: var(--bg2);
+}
+.card-item .img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, var(--bg), transparent);
+  opacity: .5;
+}
+.card-item .img img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: blur(1px);
+}
+.card-item .img .tags {
+  position: absolute; top: 24px; right: 24px; z-index: 3; display: flex; gap: 6px; flex-wrap: wrap;
+}
+.card-item .img .tags a {
+  font-size: 11px; padding: 5px 12px;
+  border: 1px solid rgba(255,255,255,.15); border-radius: 30px;
+  backdrop-filter: blur(10px);
+}
+.card-item h5 {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-display); font-size: clamp(40px, 8vw, 120px); letter-spacing: normal;
+  color: rgba(255,255,255,.9);
+}
+
+/* ===== SEC HEAD ===== */
+.sec-head { margin-bottom: 60px; }
+.sec-head .fz-40 { font-size: clamp(24px,3vw,40px); }
+.sec-head .sub-head {
+  position: relative; padding-left: 22px; font-size: 16px; font-weight: 300; color: var(--gray);
+}
+.sec-head .sub-head::after {
+  content: ''; width: 7px; height: 7px; background: #fff;
+  border-radius: 50%; position: absolute; top: 8px; left: 0;
+}
+
+/* ===== ABOUT INTRO ===== */
+.intro-cst .text h5 { font-size: clamp(18px,2vw,26px); font-weight: 300; line-height: 1.5; color: rgba(255,255,255,.85); letter-spacing: -.3px; }
+.intro-cst .states .item {
+  position: relative; padding-left: 55px;
+}
+.intro-cst .states .item::before {
+  content: ''; position: absolute; top: 10px; left: 0; width: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.intro-cst .states .item::after {
+  content: ''; position: absolute; top: 10px; left: 0; bottom: 0;
+  border-left: 1px solid var(--border);
+}
+.intro-cst .states .item span { font-size: 14px; color: #888; }
+.intro-cst .states .item h2 {
+  font-family: var(--ff-display); font-size: clamp(60px,9vw,140px);
+  letter-spacing: normal; line-height: 1; margin-top: 30px;
+}
+.intro-cst .states .item .spn-botm { margin-left: 10px; font-size: 16px; color: var(--gray); }
+
+/* ===== SERVICES ===== */
+.services-cst .item {
+  padding: 30px 0; border-bottom: 1px solid rgba(0,0,0,.2);
+  display: flex; align-items: center; justify-content: space-between;
+  overflow: hidden; transition: all .3s; cursor: default;
+  position: relative;
+}
+.services-cst .item .numb h3 { font-size: 18px; color: var(--gray); min-width: 50px; }
+.services-cst .item .title { text-align: center; flex: 1; position: relative; }
+.services-cst .item .title h2 {
+  font-size: clamp(32px, 6vw, 90px); font-weight: 500; letter-spacing: -4px;
+  white-space: nowrap; transition: color .3s;
+}
+.services-cst .item:hover .title h2 { color: var(--lime); }
+.services-cst .item .title .list { opacity: 0; transition: opacity .3s; pointer-events: none; }
+.services-cst .item:hover .title .list { opacity: 1; }
+.services-cst .item .title .list span {
+  position: absolute; padding: 6px 14px;
+  background: var(--lime); border-radius: 30px; font-size: 13px; color: var(--bg);
+  opacity: 0; transition: opacity .4s;
+  white-space: nowrap;
+}
+.services-cst .item:hover .title .list span { opacity: 1; }
+.services-cst .item .title .list span:nth-child(1) { top: -14px; left: 15%; }
+.services-cst .item .title .list span:nth-child(2) { top: 50%; left: -10px; transform: translateY(-50%); transition-delay: .1s; }
+.services-cst .item .title .list span:nth-child(3) { bottom: -14px; right: 15%; transition-delay: .2s; }
+.services-cst .item .title .list span:nth-child(4) { top: 50%; right: -10px; transform: translateY(-50%); transition-delay: .3s; }
+.services-cst .item .icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.2); display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.services-cst .item .icon img { width: 26px; }
+.light-bg .services-cst .item { border-color: rgba(0,0,0,.1); }
+
+/* ===== TEAM ===== */
+.team-cst .thecontainer {
+  display: flex; width: 200vw; padding-top: 60px;
+}
+.team-cst .panel {
+  flex: 1; display: flex; justify-content: flex-end; align-items: center; padding: 0 20px;
+}
+.team-cst .panel:nth-child(even) .item { transform: translateY(-20px); }
+.team-cst .panel .item { width: 24vw; max-width: 320px; transform: translateY(20px); }
+.team-cst .panel .item .img img { filter: grayscale(1); transition: filter .4s; border-radius: 16px; }
+.team-cst .panel .item:hover .img img { filter: grayscale(0); }
+.team-cst .panel .item .cont { margin-top: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+.team-cst .panel .item .cont h3 { font-size: 22px; font-weight: 500; }
+.team-cst .panel .item .cont span { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); }
+
+/* ===== CLIENTS ===== */
+.clients-ds .item {
+  border: 1px solid var(--border); border-radius: 80px;
+  padding: 20px 40px; display: flex; align-items: center; justify-content: center;
+  height: 80px;
+}
+.clients-ds .item .img { max-width: 110px; max-height: 40px; margin: auto; }
+.clients-ds .item img { max-height: 36px; width: auto; margin: auto; filter: brightness(0) invert(1); opacity: .5; transition: opacity .3s; }
+.clients-ds .item:hover img { opacity: 1; }
+
+/* ===== FOOTER ===== */
+.footer-sa .call-action h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(60px, 18vw, 260px);
+  font-weight: 600; text-transform: uppercase; letter-spacing: normal;
+  line-height: 1; cursor: pointer; transition: color .3s;
+}
+.footer-sa .call-action h2 a:hover { color: var(--lime); }
+.footer-sa .logo { width: 120px; }
+.footer-sa .contact-info .item { margin-bottom: 40px; }
+.footer-sa .contact-info .item span { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); display: block; margin-bottom: 8px; }
+.footer-sa .contact-info .item p, .footer-sa .contact-info .item a { font-size: 14px; color: rgba(255,255,255,.8); line-height: 1.8; }
+.footer-sa .contact-info .item a:hover { color: var(--lime); }
+.social-icon { display: flex; gap: 10px; flex-wrap: wrap; }
+.social-icon a {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: rgba(255,255,255,.7); transition: all .3s;
+}
+.social-icon a:hover { border-color: #fff; color: #fff; }
+.footer-sa .sub-footer { padding-top: 40px; margin-top: 40px; border-top: 1px solid var(--border); }
+.footer-sa .sub-footer .copy p { font-size: 13px; color: var(--gray); }
+.footer-sa .sub-footer .copy p a { color: #fff; }
+.footer-sa .sub-footer .links { display: flex; gap: 24px; }
+.footer-sa .sub-footer .links a { font-size: 13px; color: var(--gray); }
+.footer-sa .sub-footer .links a:hover { color: #fff; }
+
+/* ===== MARQUEE ===== */
+.marquee-wrap { overflow: hidden; border-top: 1px solid var(--border); padding: 20px 0; }
+.marquee-track { display: flex; width: max-content; animation: marqueeScroll 20s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
+.marquee-item { padding: 0 60px; white-space: nowrap; }
+.marquee-item h4 { font-size: 9vw; font-weight: 700; text-transform: uppercase; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.25); }
+@keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ===== UTILS ===== */
+.ml-auto { margin-left: auto; }
+.mt-80 { margin-top: 80px; }
+.mb-80 { margin-bottom: 80px; }
+.mb-30 { margin-bottom: 30px; }
+.mt-30 { margin-top: 30px; }
+.mt-40 { margin-top: 40px; }
+.pb-30 { padding-bottom: 30px; }
+.pb-80 { padding-bottom: 80px; }
+.pt-50 { padding-top: 50px; }
+.pt-0 { padding-top: 0 !important; }
+.fz-40 { font-size: clamp(22px,3vw,40px) !important; }
+.ls2 { letter-spacing: -2px; }
+.text-u { text-transform: uppercase; }
+.d-flex { display: flex; }
+.align-items-center { align-items: center; }
+.align-items-end { align-items: flex-end; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-end { justify-content: flex-end; }
+.justify-content-center { justify-content: center; }
+.valign { display: flex; align-items: center; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .team-cst .thecontainer { width: 100%; flex-direction: column; }
+  .team-cst .panel { width: 100%; justify-content: center; }
+  .team-cst .panel .item { width: 100%; max-width: 100%; transform: none !important; }
+  .hero-img-right { display: none; }
+  .intro-cst .states .item h2 { font-size: clamp(50px, 12vw, 100px); }
+  .services-cst .item .title h2 { font-size: clamp(24px, 5vw, 55px); }
+  .sec-head .d-flex { flex-wrap: wrap; gap: 16px; }
+  .sec-head .ml-auto { margin-left: 0; }
+  .num-col { border-right: none; border-top: 1px solid var(--border); }
+  .num-col:first-child { border-top: none; }
+}
+@media (max-width: 768px) {
+  .section-padding { padding: 60px 0; }
+  h1 { font-size: 36px; letter-spacing: -1px; }
+  h2 { font-size: 28px; letter-spacing: -1px; }
+  h3 { font-size: 24px; }
+  .hero-caption h1 { font-size: clamp(48px, 14vw, 80px) !important; }
+  .hero-caption h2 { font-size: 15px; }
+  .footer-sa .call-action h2 { font-size: clamp(40px, 12vw, 80px); }
+  .services-cst .item .title .list { display: none; }
+  .clients-ds .item { padding: 15px 20px; }
+}
+
+/* ===== WOW FADE ===== */
+.wow { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+.wow.animated { opacity: 1; transform: translateY(0); }
+
+
+/* ─── PAGE-SPECIFIC ─── */
+
+.work-hed-wrap { padding-top: 160px; padding-bottom: 20px; }
+.work-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 40px; }
+.filter-btn {
+  padding: 7px 18px; border-radius: 30px; font-size: 13px; cursor: pointer;
+  border: 1px solid var(--border); color: rgba(255,255,255,.6); background: transparent;
+  transition: all .2s;
+}
+.filter-btn:hover, .filter-btn.active { background: var(--lime); color: #1d1d1d; border-color: var(--lime); }
+.work-item { margin-bottom: 28px; }
+.work-item .img {
+  position: relative; border-radius: 18px; overflow: hidden; background: var(--bg2);
+  height: 380px;
+}
+.work-item .img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.work-item:hover .img img { transform: scale(1.04); }
+.work-item .img::after {
+  content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity .3s;
+  background: rgba(14,15,17,.5);
+}
+.work-item:hover .img::after { opacity: 1; }
+.work-item .img .tags { position: absolute; top: 20px; right: 20px; z-index: 3; display: flex; gap: 6px; flex-wrap: wrap; }
+.work-item .img .tags a { font-size: 11px; padding: 5px 12px; border: 1px solid rgba(255,255,255,.2); border-radius: 30px; backdrop-filter: blur(10px); }
+.work-item .img .domain {
+  position: absolute; bottom: 20px; left: 20px; z-index: 3;
+  font-family: var(--ff-display); font-size: clamp(22px,3vw,36px); letter-spacing: normal;
+  color: rgba(255,255,255,.85);
+}
+
+</style>
+</head>
+<body>
+<div class="loader-wrap" id="loader">
+  <div class="loader-inner"><div class="loader-dot"></div><div class="loader-dot"></div><div class="loader-dot"></div></div>
+</div>
+<div class="progress-wrap" id="progressWrap">
+  <svg width="46" height="46" viewBox="-1 -1 48 48"><path d="M23,1 a22,22 0 0,1 0,44 a22,22 0 0,1 0,-44" id="progressPath"/></svg>
+</div><div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" >Home</a>
+  <a href="about.html" >About</a>
+  <a href="portfolio.html">Projects</a>
+  <a href="services.html" >Services</a>
+  <a href="pricing.html" >Pricing</a>
+  <a href="contact.html" >Contact</a>
+  <a href="https://blog.internetmarketingmedia.net/" target="_blank">Blog</a>
+  <div class="mobile-menu-info mt-40"><p>hello@internetmarketingmedia.net</p><p>+381 61 601 4693</p></div>
+</div><nav class="navbar">
+  <div class="navbar-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="assets/imgs/logo-imm.png" alt="Internet Marketing Media" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'color:#d0ff71;font-family:Six Caps,sans-serif;font-size:22px;letter-spacing:1px;padding:4px 8px\'>IMM</span>'">
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+<div class="nav-dropdown">
+      <a href="services.html">Services</a>
+      <div class="dropdown-menu-custom">
+      <a href="technical-seo.html"><i class="fa-solid fa-microscope"></i>Technical SEO</a>
+      <a href="on-page-seo.html"><i class="fa-solid fa-file-lines"></i>On-Page SEO</a>
+      <a href="link-building.html"><i class="fa-solid fa-link"></i>Link Building</a>
+      <a href="local-seo.html"><i class="fa-solid fa-map-location-dot"></i>Local SEO</a>
+      <a href="ecommerce-seo.html"><i class="fa-solid fa-cart-shopping"></i>E-Commerce SEO</a>
+      <a href="ai-seo-aeo.html"><i class="fa-solid fa-robot"></i>AI SEO &amp; AEO</a>
+      <a href="youtube-seo.html"><i class="fa-brands fa-youtube"></i>YouTube SEO</a>
+      <div class="dd-divider"></div>
+      <a href="services.html"><i class="fa-solid fa-grid-2"></i>All Services</a>
+      </div>
+    </div>
+      <div class="nav-dropdown">
+      <a href="industries.html">Industries</a>
+      <div class="dropdown-menu-custom">
+      <a href="seo-for-law-firms.html"><i class="fa-solid fa-gavel"></i>Law Firms</a>
+      <a href="seo-for-saas.html"><i class="fa-solid fa-microchip"></i>SaaS &amp; Tech</a>
+      <a href="seo-for-healthcare.html"><i class="fa-solid fa-heart-pulse"></i>Healthcare</a>
+      <a href="seo-for-ecommerce.html"><i class="fa-solid fa-cart-shopping"></i>E-Commerce</a>
+      <a href="seo-for-home-services.html"><i class="fa-solid fa-wrench"></i>Home Services</a>
+      <a href="seo-for-real-estate.html"><i class="fa-solid fa-building"></i>Real Estate</a>
+      <a href="seo-for-education.html"><i class="fa-solid fa-graduation-cap"></i>Education</a>
+      <a href="seo-for-travel.html"><i class="fa-solid fa-plane"></i>Travel</a>
+      <a href="seo-for-restaurants.html"><i class="fa-solid fa-utensils"></i>Restaurants</a>
+      <a href="seo-for-fitness.html"><i class="fa-solid fa-dumbbell"></i>Fitness &amp; Wellness</a>
+      <a href="seo-for-local-business.html"><i class="fa-solid fa-store"></i>Local Business</a>
+      <a href="seo-for-finance.html"><i class="fa-solid fa-money-bill-trend-up"></i>Finance</a>
+      <div class="dd-divider"></div>
+      <a href="industries.html"><i class="fa-solid fa-grid-2"></i>All Industries</a>
+      </div>
+    </div>
+      <div class="nav-dropdown">
+        <a href="locations.html">Locations</a>
+        <div class="dropdown-menu-custom">
+      <div class="has-submenu">
+        <a href="united-states-seo.html"><i class="fa-solid fa-flag-usa" style="color:var(--lime);font-size:13px;width:16px;text-align:center"></i>United States<i class="fa-solid fa-chevron-right sub-arrow" style="margin-left:auto;font-size:9px"></i></a>
+        <div class="submenu">
+          <a href="seo-agency-new-york.html">New York</a>
+          <a href="seo-agency-los-angeles.html">Los Angeles</a>
+          <a href="seo-agency-chicago.html">Chicago</a>
+          <a href="seo-agency-houston.html">Houston</a>
+          <a href="seo-agency-miami.html">Miami</a>
+          <a href="seo-agency-dallas.html">Dallas</a>
+          <a href="seo-agency-atlanta.html">Atlanta</a>
+          <a href="seo-agency-san-francisco.html">San Francisco</a>
+          <a href="seo-agency-phoenix.html">Phoenix</a>
+          <a href="seo-agency-philadelphia.html">Philadelphia</a>
+          <a href="seo-agency-seattle.html">Seattle</a>
+          <a href="seo-agency-denver.html">Denver</a>
+          <a href="seo-agency-boston.html">Boston</a>
+          <a href="seo-agency-austin.html">Austin</a>
+          <a href="seo-agency-columbus.html">Columbus</a>
+          <div class="sub-divider"></div>
+          <a href="united-states-seo.html" style="color:var(--lime)">All US cities <i class="fa-solid fa-arrow-up-right" style="font-size:9px"></i></a>
+        </div>
+      </div>
+      <a href="united-kingdom-seo.html"><i class="fa-solid fa-location-dot"></i>United Kingdom</a>
+      <a href="germany-seo.html"><i class="fa-solid fa-location-dot"></i>Germany</a>
+      <a href="norway-seo.html"><i class="fa-solid fa-location-dot"></i>Norway</a>
+      <a href="sweden-seo.html"><i class="fa-solid fa-location-dot"></i>Sweden</a>
+      <a href="netherlands-seo.html"><i class="fa-solid fa-location-dot"></i>Netherlands</a>
+      <a href="australia-seo.html"><i class="fa-solid fa-location-dot"></i>Australia</a>
+      <div class="dd-divider"></div>
+      <a href="locations.html"><i class="fa-solid fa-globe"></i>All Locations</a>
+        </div>
+      </div>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://blog.internetmarketingmedia.net/" target="_blank">Blog</a>
+    </div>
+    <div class="d-flex align-items-center" style="gap:10px">
+      <a href="contact.html" style="padding:8px 16px;border:1px solid rgba(208,255,113,.45);color:var(--lime);border-radius:30px;font-size:12px;font-weight:500;white-space:nowrap;display:none;align-items:center;gap:6px;transition:all .3s" class="d-none d-lg-flex" onmouseover="this.style.background='rgba(208,255,113,.1)'" onmouseout="this.style.background='transparent'"><i class="fa-solid fa-magnifying-glass" style="font-size:10px"></i> Free Audit</a>
+      <a href="contact.html" class="nav-cta">Start a Project <i class="fa-solid fa-arrow-up-right" style="font-size:11px"></i></a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- PORTFOLIO HEADER -->
+<header class="work-hed-wrap">
+  <div class="container">
+    <div class="wow">
+      <p style="font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--lime);margin-bottom:16px">Our Work</p>
+      <h1 style="font-family:var(--ff-display);font-size:clamp(70px,13vw,160px);font-weight:600;text-transform:uppercase;letter-spacing:normal;line-height:.95">Portfolio</h1>
+      <p style="max-width:420px;margin-top:20px">55+ projects across SEO, web design, Google Ads, and digital marketing — in 8 countries.</p>
+    </div>
+    <div class="work-filter wow" data-delay="150">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">SEO Optimization</button>
+      <button class="filter-btn">Web Design</button>
+      <button class="filter-btn">Google Ads</button>
+      <button class="filter-btn">Digital Marketing</button>
+    </div>
+  </div>
+</header>
+
+<div class="marquee-wrap" style="margin-bottom:60px">
+  <div class="marquee-track">
+    <div class="marquee-item"><h4>Projects</h4></div><div class="marquee-item"><h4>Projects</h4></div>
+    <div class="marquee-item"><h4>Projects</h4></div><div class="marquee-item"><h4>Projects</h4></div>
+    <div class="marquee-item"><h4>Projects</h4></div><div class="marquee-item"><h4>Projects</h4></div>
+    <div class="marquee-item"><h4>Projects</h4></div><div class="marquee-item"><h4>Projects</h4></div>
+  </div>
+</div>
+
+<!-- GRID -->
+<section style="padding-bottom:100px">
+  <div class="container-fluid px-4">
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="0">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/millo.webp" alt="Millo" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>Digital Marketing</a><a>SEO Optimization</a></div>
+          <div class="domain">millo.com</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="100">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/halooglasi.webp" alt="Halo Oglasi" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a><a>Keyword Mapping</a></div>
+          <div class="domain">halooglasi.com</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="200">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/aibm.webp" alt="AIBM" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a><a>Google Advertising</a></div>
+          <div class="domain">aibm.us</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="0">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/diplon.webp" alt="Diplon" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>Digital Marketing</a><a>SEO Optimization</a></div>
+          <div class="domain">diplon.hu</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="100">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/refreshmassage.webp" alt="Refresh Massage" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>Website Development</a><a>SEO Optimization</a></div>
+          <div class="domain">refreshmassage.rs</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="200">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/voskar-avramovic.webp" alt="Voskar Avramovic" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a><a>Website Development</a></div>
+          <div class="domain">voskaravramovic.com</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="0">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/ograde-kovane.webp" alt="Ograde Kovane" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a></div>
+          <div class="domain">ogradekovane.com</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="100">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/dargranit.webp" alt="Dar Granit" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a></div>
+          <div class="domain">dargranit.rs</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="200">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/veterinarska-hirurgija.webp" alt="Vet Hirurgija" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a><a>Website Development</a></div>
+          <div class="domain">veterinarskahirurgija.com</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="0">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/agrogas.webp" alt="Agrogas" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a></div>
+          <div class="domain">agrogas.co.rs</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="100">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/trokal.webp" alt="Trokal" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a></div>
+          <div class="domain">trokal.rs</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="200">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/kotex.webp" alt="Kotex" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a></div>
+          <div class="domain">kotex.rs</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="0">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/orderfastawards.webp" alt="OrderFastAwards" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a></div>
+          <div class="domain">orderfastawards.com</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="100">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/apoteket.webp" alt="Apoteket" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a></div>
+          <div class="domain">apoteketelgen.no</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="200">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/lplast.webp" alt="Lplast" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a></div>
+          <div class="domain">lplast.com</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="0">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/savremena.webp" alt="Savremena" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a></div>
+          <div class="domain">savremena-osnovna.edu.rs</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="100">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/dijamant-rez.webp" alt="Dijamant Rez" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a></div>
+          <div class="domain">dijamantrez.rs</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="200">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/contessa.webp" alt="Contessa Moda" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a></div>
+          <div class="domain">contessamoda.rs</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 work-item wow" data-delay="0">
+        <div class="img">
+          <img src="imm-net/inner_pages/assets/imgs/portfolio/works3/b2b.webp" alt="B2B Map" loading="lazy"
+            onerror="this.parentElement.style.background='#1f2024';this.style.display='none'">
+          <div class="tags"><a>SEO Optimization</a></div>
+          <div class="domain">b2bmap.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer-sa pb-80">
+  <div class="container section-padding">
+
+    <!-- CTA -->
+    <div class="call-action text-center mb-80">
+      <h2 class="title-font"><a href="contact.html">Contact</a></h2>
+    </div>
+
+    <!-- MAIN FOOTER GRID -->
+    <div class="row g-5">
+
+      <!-- Brand col -->
+      <div class="col-lg-4 col-md-12">
+        <a href="index.html" class="logo d-block mb-24">
+          <img src="assets/imgs/logo-imm.png" alt="Internet Marketing Media" style="filter:invert(1);max-width:120px"
+            onerror="this.outerHTML='<span style=\'font-family:Six Caps,sans-serif;font-size:28px;color:#d0ff71;letter-spacing:1px\'>IMM</span>'">
+        </a>
+        <p style="font-size:14px;color:rgba(255,255,255,.55);line-height:1.8;max-width:280px;margin-bottom:28px">Full-service SEO for businesses in the US, UK, Europe, and Australia. English, German, Norwegian, Hungarian, Croatian, and Serbian.</p>
+        <div class="social-icon">
+          <a href="https://www.facebook.com/internetmarketingmedia.net" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Services col -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:20px">Services</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="technical-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Technical SEO</a>
+          <a href="on-page-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">On-Page SEO</a>
+          <a href="link-building.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Link Building</a>
+          <a href="local-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Local SEO</a>
+          <a href="ecommerce-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">E-Commerce SEO</a>
+          <a href="ai-seo-aeo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">AI SEO &amp; AEO</a>
+          <a href="youtube-seo.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">YouTube SEO</a>
+        </div>
+      </div>
+
+      <!-- Industries col -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:20px">Industries</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="seo-for-law-firms.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Law Firms</a>
+          <a href="seo-for-saas.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">SaaS &amp; Tech</a>
+          <a href="seo-for-healthcare.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Healthcare</a>
+          <a href="seo-for-ecommerce.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">E-Commerce</a>
+          <a href="seo-for-real-estate.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Real Estate</a>
+          <a href="seo-for-finance.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Finance</a>
+          <a href="industries.html" style="font-size:13px;color:var(--lime);transition:color .2s">All industries &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Locations col -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:20px">Locations</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="seo-agency-new-york.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">New York</a>
+          <a href="seo-agency-los-angeles.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Los Angeles</a>
+          <a href="seo-agency-chicago.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Chicago</a>
+          <a href="seo-agency-miami.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Miami</a>
+          <a href="seo-agency-houston.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Houston</a>
+          <a href="seo-agency-san-francisco.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">San Francisco</a>
+          <a href="united-states-seo.html" style="font-size:13px;color:var(--lime);transition:color .2s">All US cities &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Contact col -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:20px">Contact</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px">
+          <a href="mailto:hello@internetmarketingmedia.net" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s;word-break:break-all" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">hello@internetmarketingmedia.net</a>
+          <a href="tel:+381616014693" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">+381 61 601 4693</a>
+        </div>
+        <p style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);margin-bottom:16px">Company</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="about.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">About</a>
+          <a href="pricing.html" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Pricing</a>
+          <a href="https://blog.internetmarketingmedia.net/" target="_blank" style="font-size:13px;color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Blog</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SUB FOOTER -->
+  <div class="container">
+    <div class="sub-footer">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="copy">
+            <p>&#169; 2026 <a href="index.html">Internet Marketing Media</a>. All rights reserved.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end">
+          <div class="links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="cookie-policy.html">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  "use strict";
+  window.addEventListener('load',function(){
+    setTimeout(function(){
+      var l=document.getElementById('loader');if(l)l.classList.add('hidden');
+      initWow();
+    },400);
+  });
+  var ham=document.getElementById('hamburger'),mob=document.getElementById('mobileMenu');
+  if(ham&&mob){ham.addEventListener('click',function(){
+    mob.classList.toggle('open');
+    var sp=ham.querySelectorAll('span');
+    if(mob.classList.contains('open')){sp[0].style.transform='rotate(45deg) translate(5px,5px)';sp[1].style.opacity='0';sp[2].style.transform='rotate(-45deg) translate(5px,-5px)';}
+    else{sp[0].style.transform='';sp[1].style.opacity='';sp[2].style.transform='';}
+  });}
+  var pw=document.getElementById('progressWrap'),pp=document.getElementById('progressPath');
+  window.addEventListener('scroll',function(){
+    var st=window.scrollY,dh=document.body.scrollHeight-window.innerHeight;
+    if(pw)pw.classList.toggle('active-progress',st>300);
+    if(pp){var t=307;pp.style.strokeDashoffset=t-(t*(st/dh));}
+  });
+  if(pw)pw.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  function initWow(){
+    var els=document.querySelectorAll('.wow');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('animated');});return;}
+    var io=new IntersectionObserver(function(entries){entries.forEach(function(e){
+      if(e.isIntersecting){var d=e.target.dataset.delay||0;setTimeout(function(){e.target.classList.add('animated');},+d);io.unobserve(e.target);}
+    });},{threshold:0.12});
+    els.forEach(function(el){io.observe(el);});
+  }
+})();
+</script>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    this.classList.add('active');
+    var filter = this.textContent.trim();
+    document.querySelectorAll('.work-item').forEach(function(item){
+      if(filter === 'All'){
+        item.style.display = '';
+      } else {
+        var tags = item.querySelectorAll('.tags a');
+        var match = false;
+        tags.forEach(function(t){ if(t.textContent.trim() === filter) match = true; });
+        item.style.display = match ? '' : 'none';
+      }
+    });
+  });
+});
+</script>
+</body></html>
