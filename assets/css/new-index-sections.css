@@ -256,3 +256,7 @@ html.lenis body { height: auto; }
 .marquee-track:hover{
     animation-play-state: running !important;
 }
+.marquee-item span {
+   color: #FFF!important;
+   -webkit-text-stroke: none!important;
+}
