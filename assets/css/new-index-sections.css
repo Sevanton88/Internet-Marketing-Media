@@ -260,3 +260,6 @@ html.lenis body { height: auto; }
    color: #FFF!important;
    -webkit-text-stroke: none!important;
 }
+.marquee-track:hover{
+    animation-play-state: running !important;
+}
