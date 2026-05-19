@@ -467,7 +467,7 @@ p { font-size: 15px; color: var(--gray); line-height: 1.7; }
 .process-step-box{flex:1;padding:36px 28px;background:var(--bg2);border-right:1px solid rgba(255,255,255,.06);transition:background .3s}
 .process-step-box:last-child{border-right:none}
 .process-step-box:hover{background:#1f2024}
-.process-step-box .step-n{font-family:var(--ff-display);font-size:52px;letter-spacing:normal;color:rgba(255,255,255,.05);line-height:1;margin-bottom:16px}
+.process-step-box .step-n{font-family:var(--ff-display);font-size:52px;letter-spacing:normal;color:rgba(255,255,255,1);line-height:1;margin-bottom:16px}
 .process-step-box .step-icon{width:36px;height:36px;border-radius:50%;background:rgba(208,255,113,.1);border:1px solid rgba(208,255,113,.25);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .process-step-box h4{font-size:16px;letter-spacing:-.3px;margin-bottom:10px}
 .process-step-box p{font-size:13px;line-height:1.7}
@@ -488,7 +488,10 @@ p { font-size: 15px; color: var(--gray); line-height: 1.7; }
 .marquee-track{display:flex;width:max-content;animation:marqueeScroll 22s linear infinite}
 .marquee-track:hover{animation-play-state:paused}
 .marquee-item{padding:0 50px;white-space:nowrap}
-.marquee-item span{font-family:var(--ff-display);font-size:8vw;font-weight:700;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.15)}
+.marquee-item span{font-family:var(--ff-display);font-size:8vw;font-weight:700;text-transform:uppercase;color:#FFF;-webkit-text-stroke:none;}
+.marquee-track:hover{
+    animation-play-state: running !important;
+}
 @keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(max-width:991px){.nav-links{display:none}.hamburger{display:flex}.process-row{flex-direction:column}.process-step-box{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}.process-step-box:last-child{border-bottom:none}}
 @media(max-width:768px){.section-padding{padding:60px 0}.svc-hero{padding-top:130px;padding-bottom:50px}h1{font-size:36px;letter-spacing:-1px}h2{font-size:28px;letter-spacing:-1px}.svc-block{padding:50px 0}.audit-card{position:relative;top:0}}
